@@ -1,10 +1,10 @@
-import Tree from "./components/Tree";
+import Intro from "./pages/intro";
 
 
 export default function App() {
   return (
     <div>
-      <Tree />
+      <Intro />
     </div>
   );
 }
