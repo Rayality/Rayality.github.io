@@ -36,7 +36,7 @@ function SketchBG() {
                 branch((len * .8));
 
                 p5.pop();
-                p5.rotate(-angle*.4-x/(len*.1));
+                p5.rotate(-angle*.35-x/(len*.1));
                 branch((len * .8));
             }
             else if (Math.floor(len) > 8){
@@ -44,7 +44,7 @@ function SketchBG() {
                 p5.translate(0, -len);
 
                 p5.push();
-                p5.rotate(angle*.4-x/(len*.1));
+                p5.rotate(angle*.35-x/(len*.1));
                 branch((len * .75));
 
                 p5.pop();
