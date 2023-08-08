@@ -1,6 +1,6 @@
-
 import Sketch from 'react-p5'
-import '../intro.css'
+import '../css/intro.css'
+
 
 function SketchBG() {
     let x = 50;
@@ -8,28 +8,32 @@ function SketchBG() {
     let angle = (x);
     let userX = 50;
     let userY = 50;
+
     document.addEventListener("mousemove", setXY);
 
     const setup = (p5, canvasParentRef) => {
-        p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef)
+        p5.createCanvas(p5.windowWidth, p5.windowHeight*.7).parent(canvasParentRef)
+        p5.background(0)
     }
 
     function setXY(event) {
         userX = event.clientX
         userY = event.clientY
         x=((window.parent.innerWidth/2)-userX)/500
-        y=(window.parent.innerHeight-userY)
+        y=((window.parent.innerHeight-userY)*.7)
         angle = (.5 + x * x / 2)
     }
 
     const draw = p5 => {
-
         p5.frameRate(30);
-        p5.background(51);
+        p5.background('0,0,0,100');
         p5.stroke(255/angle);
         p5.circle(userX,userY,window.parent.innerWidth/40)
         p5.translate(p5.width / 2, p5.height);
+
+
         branch(y / 6);
+
         function branch(len) {
 
             p5.stroke(0,0,0,110);
