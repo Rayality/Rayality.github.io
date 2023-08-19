@@ -1,0 +1,116 @@
+/* NAVBAR */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    font-family: 'Electrolize', sans-serif;
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    padding: .5rem clamp(1rem, 3.5vw, 5rem);
+    background-color: rgba(27, 20, 75, 0.781);
+    backdrop-filter: blur(15px);
+}
+
+.nav-bar * {
+    display: inline;
+    font-size: clamp(1rem, 3.5vw, 2rem);
+    color: var(--bgreen);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.nav-bar button {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.nav-bar p {
+    margin-bottom: 0;
+}
+
+.nav-wrap {
+    display: flex;
+    gap: clamp(1px, 2.5vw, 4rem);
+}
+
+.glitch {
+    position: relative;
+    animation: glitchy 1.6s alternate-reverse infinite;
+}
+
+@keyframes glitchy {
+
+    2%,
+    64% {
+        transform: translate(0px, 0) skew(0deg);
+    }
+
+    4%,
+    60% {
+        transform: translate(0px, 0) skew(0deg);
+    }
+
+    62% {
+        transform: translate(0, 0) skew(0deg);
+    }
+}
+
+.glitch:before {
+    content: attr(effect);
+    position: absolute;
+    width: 100%;
+    animation: glitchTop 1s linear infinite;
+    clip-path: polygon(0% 0, 100% 0, 100% 33%, 0 33%);
+    -webkit-clip-path: polygon(67% 0, 100% 0, 100% 53%, 0 53%);
+}
+
+@keyframes glitchTop {
+
+    2%,
+    64% {
+        transform: translate(1px, 0px);
+    }
+
+    4%,
+    60% {
+        transform: translate(-1px, 0px);
+    }
+
+    62% {
+        transform: translate(22px, -2px) skew(-21deg);
+    }
+}
+
+
+.glitch:after {
+    content: attr(effect);
+    position: absolute;
+    left: 2px;
+    top: 0;
+    width: 100%;
+    animation: glitchBotom 1.5s linear infinite;
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBotom {
+
+    2%,
+    64% {
+        transform: translate(-2px, 0);
+    }
+
+    4%,
+    60% {
+        transform: translate(-2px, 0);
+    }
+
+    62% {
+        transform: translate(-22px, 5px) skew(21deg);
+    }
+}

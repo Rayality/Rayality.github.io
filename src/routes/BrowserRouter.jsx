@@ -1,18 +1,23 @@
 import Intro from "../pages/intro";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
-import Tree from '../components/Tree'
+import Expirements from "../pages/expirements";
+import Resume from "../pages/resume";
 
 const Routes = () => {
     const publicRoutes = [
-        {
-            path: "/",
-            Component: Intro,
-        },
-        {
-            path: "/tree",
-            Component: Tree,
-        },
+      {
+        path: "/",
+        Component: Intro,
+      },
+      {
+        path: "/expirements",
+        Component: Expirements,
+      },
+      {
+        path: "/resume",
+        Component: Resume,
+      },
     ];
   const router = createBrowserRouter([
     {

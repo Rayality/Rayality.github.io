@@ -12,10 +12,9 @@ function SketchBG() {
     document.addEventListener("mousemove", setXY);
 
     const setup = (p5, canvasParentRef) => {
-        p5.createCanvas(p5.windowWidth, p5.windowHeight*.7).parent(canvasParentRef)
-        p5.background(0)
+        p5.createCanvas(p5.windowWidth/4, p5.windowHeight/2).parent(canvasParentRef)
+        p5.background('rgba 0,0,0,0')
     }
-
     function setXY(event) {
         userX = event.clientX
         userY = event.clientY
@@ -25,19 +24,14 @@ function SketchBG() {
     }
 
     const draw = p5 => {
-        p5.frameRate(30);
-        p5.background('0,0,0,100');
-        p5.stroke(255/angle);
-        p5.circle(userX,userY,window.parent.innerWidth/40)
+        p5.frameRate(20);
+        p5.background('rgba 1,2,3,.8');
         p5.translate(p5.width / 2, p5.height);
-
-
         branch(y / 6);
 
         function branch(len) {
-
-            p5.stroke(0,0,0,110);
-            p5.strokeWeight(len * .1);
+            p5.stroke(150-len,150-len*2,150-len*3,150+len*5);
+            p5.strokeWeight(len * .15);
 
             if (len > Math.floor(window.innerHeight / 10)) {
                 p5.line(0, 0, 0, -len);
@@ -66,28 +60,22 @@ function SketchBG() {
             else {
                 p5.push();
                 p5.rotate(angle*.8-x/(len*.1));
-                p5.line(0, 0, 0, -len);
-                p5.translate(0, -len);
-                p5.fill(p5.color(200, 250, 200,30));
+                p5.fill(p5.color(200, 250, 200));
                 p5.ellipse(len / 4, 0, len / 4, len);
                 p5.pop();
                 p5.rotate(-angle*.8-x/(len*.1));
-                p5.line(0, 0, 0, -len);
-                p5.translate(0, -len);
-                p5.fill(p5.color(200, 250, 200,30));
+                p5.fill(p5.color(200, 250, 200));
                 p5.ellipse(len / 4, 0, len / 4, len);
             }
         }
     };
 
     const windowResized = p5 => {
-        p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+        p5.resizeCanvas(p5.windowWidth/4, p5.windowHeight/2);
     }
 
     return (
-        <div className='canvas-parent'>
-            <Sketch setup={setup} draw={draw} windowResized={windowResized} className={'canvas-parent'} />
-        </div>
+        <Sketch setup={setup} draw={draw} windowResized={windowResized} />
         )
     }
 
