@@ -1,11 +1,8 @@
 import { Component } from 'react'
-import { useSelector } from 'react-redux'
 
 export default function Digital() {
     const canvas = document.getElementById("rain")
     const ctx = canvas.getContext('2d')
-    let showCanvas = useSelector((state) => state.canvasControl.canvasState)
-
     class Symbol extends Component{
         constructor(x, y, fontSize, canvasHeight) {
             super()

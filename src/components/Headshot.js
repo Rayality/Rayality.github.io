@@ -1,9 +1,10 @@
-import head from '../resources/headshot.png'
+import { useEffect } from 'react';
+import { useRef } from 'react';
 
-export default function Headshot() {
-    const picture = new Image();
-    picture.src = head
-    picture.addEventListener('load', () => {
+export default function Headshot(props) {
+    let animID = useRef();
+    useEffect(() => {
+        const picture = props.picture
         const canv = document.getElementById('head');
         const ctx = canv.getContext('2d');
         canv.width = 490;
@@ -84,8 +85,10 @@ export default function Headshot() {
                 ctx.globalAlpha = particle.speed * 0.04;
                 particle.draw();
             })
-            requestAnimationFrame(animate);
+            cancelAnimationFrame(animID.current)
+            animID.current=requestAnimationFrame(animate);
         }
-        animate();
-    });
+        animID.current=requestAnimationFrame(animate);
+        return ()=>cancelAnimationFrame(animID.current)
+    }, [])
 }

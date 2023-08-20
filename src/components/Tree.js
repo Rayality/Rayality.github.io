@@ -3,24 +3,24 @@ import '../css/intro.css'
 
 
 function SketchBG() {
-    let x = 50;
-    let y = 50;
+    let x = 0;
+    let y = 0;
     let angle = (x);
-    let userX = 50;
-    let userY = 50;
+    let userX = 0;
+    let userY = 0;
 
     document.addEventListener("mousemove", setXY);
 
     const setup = (p5, canvasParentRef) => {
-        p5.createCanvas(p5.windowWidth/4, p5.windowHeight/2).parent(canvasParentRef)
+        p5.createCanvas(window.innerWidth/4, window.innerHeight/2).parent(canvasParentRef)
         p5.background('rgba 0,0,0,0')
     }
     function setXY(event) {
         userX = event.clientX
         userY = event.clientY
         x=((window.parent.innerWidth/2)-userX)/500
-        y=((window.parent.innerHeight-userY)*.7)
-        angle = (.5 + x * x / 2)
+        y=((window.parent.innerHeight-userY)*.4)
+        angle = (.6 + (x * x) / 6)
     }
 
     const draw = p5 => {

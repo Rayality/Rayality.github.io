@@ -4,7 +4,7 @@ import canvasControlSlice  from "./canvasSlice";
 
 export const store = configureStore({
   reducer: {
-    canvasControl: canvasControlSlice
+    canvasControl: canvasControlSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(
