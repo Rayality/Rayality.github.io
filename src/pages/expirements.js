@@ -5,7 +5,7 @@ import '../css/experiment.css'
 
 export default function Expirements() {
     useEffect(() => {
-        Digital()
+        // Digital()
     }, [])
 
     const [shown, setShown] = useState('digital')
@@ -14,8 +14,8 @@ export default function Expirements() {
         let canv = document.getElementById('rain')
         switch (e.target.name) {
             case 'digital':
-                setShown('digital');
                 canv.classList.remove('d-none')
+                setShown('digital');
                 break;
             case 'tree':
                 canv.classList.add('d-none')
@@ -34,7 +34,8 @@ export default function Expirements() {
             </div>
             <div className='experiment-wrapper'>
                 <div className="experiment">
-                    <canvas id='rain' className="d-none"/>
+                    <canvas id='rain' className="d-none" />
+                    {shown === 'digital' ? <Digital/>:null}
                     {shown === 'tree' ? <Tree /> : null}
                 </div>
             </div>

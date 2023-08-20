@@ -33,7 +33,7 @@ function SketchBG() {
             p5.stroke(150-len,150-len*2,150-len*3,150+len*5);
             p5.strokeWeight(len * .15);
 
-            if (len > Math.floor(window.innerHeight / 10)) {
+            if (len > Math.floor(window.innerHeight / 11)) {
                 p5.line(0, 0, 0, -len);
                 p5.translate(0, -len);
                 p5.push();
@@ -44,7 +44,7 @@ function SketchBG() {
                 branch((len * .75));
             }
 
-            else if (Math.floor(len) > 8){
+            else if (Math.floor(len) > 13){
                 p5.line(0, 0, 0, -len);
                 p5.translate(0, -len);
 
@@ -70,12 +70,12 @@ function SketchBG() {
         }
     };
 
-    const windowResized = p5 => {
-        p5.resizeCanvas(p5.windowWidth/4, p5.windowHeight/2);
-    }
+    // const windowResized = p5 => {
+    //     p5.resizeCanvas(p5.windowWidth/4, p5.windowHeight/2);
+    // }
 
     return (
-        <Sketch setup={setup} draw={draw} windowResized={windowResized} />
+        <Sketch setup={setup} draw={draw} />
         )
     }
 
