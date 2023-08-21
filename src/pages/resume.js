@@ -14,7 +14,7 @@ export default function Resume() {
             {/* <div className='scroll'>
                 <img className='seal' src={seal} alt='seal' />
             </div> */}
-            <div className='download'>
+            <section className='download'>
                 <a href={pdfRes} download="Charles-Cowan-Resume" rel='noreferrer'>
                     <button className='dl left'>
                         <img className='dl-image' src={pdf} alt='PDF icon'/>
@@ -27,7 +27,7 @@ export default function Resume() {
                         Download
                     </button>
                 </a>
-            </div>
+            </section>
     <section className="page">
         <img className='bg-image' src={parch} alt='paper'/>
         <h1 className='me'>Charles Cowan</h1>
