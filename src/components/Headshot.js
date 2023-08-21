@@ -7,8 +7,8 @@ export default function Headshot(props) {
         const picture = props.picture
         const canv = document.getElementById('head');
         const ctx = canv.getContext('2d');
-        canv.width = 490;
-        canv.height = 564;
+        canv.width = 441;
+        canv.height = 508;
         let particles = [];
         const numberOfParticles = 2000;
         ctx.drawImage(picture, 0, 0, canv.width, canv.height)

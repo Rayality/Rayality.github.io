@@ -24,7 +24,7 @@ export default function Intro() {
         setLoaded(true)
         dispatch(setCanvasState(true))
     }
-    
+
     return (
         <div>
             <h4 className="construction">Currently in Development. Some features may not be optimized for your device.</h4>
