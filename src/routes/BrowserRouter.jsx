@@ -11,7 +11,7 @@ const Routes = () => {
         Component: Intro,
       },
       {
-        path: "/expirements",
+        path: "/experiments",
         Component: Expirements,
       },
       {

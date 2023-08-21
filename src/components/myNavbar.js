@@ -47,42 +47,44 @@ export default function MyNavbar() {
 
     function handleClicks(e) {
         dispatch(setCanvasState(false))
-        navigate(e.target.name)
+        navigate(e.target.id)
     }
 
     return (
         <motion.div initial="hidden" animate="show" variants={slide} className="nav-bar">
 
-            <motion.p name="''" variants={slideChild} effect="Charles Cowan" onMouseOver={handleHover} onMouseLeave={handleLeave} onClick={handleClicks}>
+            <motion.p id='' variants={slideChild} effect="Charles Cowan" onMouseOver={handleHover} onMouseLeave={handleLeave} onClick={handleClicks}>
                 Charles Cowan
             </motion.p>
             <div className='nav-wrap'>
                 <motion.button
                     className='btn'
                     variants={slideChild}
-                    name="''"
+                    id=""
                     onClick={handleClicks}
                 >
-                    <img src={house} alt='home' style={{'maxHeight':'2ch'}}/>
+                    <img id="" src={house} alt='home' style={{'maxHeight':'2ch'}}/>
                     <p
                         effect="Home"
                         onMouseOver={handleHover}
                         onMouseLeave={handleLeave}
+                        id=""
                     >
                         Home
                     </p>
                 </motion.button>
                 <motion.button
+                    id="experiments"
                     className='btn'
                     variants={slideChild}
+                    onClick={handleClicks}
                 >
                     <img src={vial} alt='experiments' style={{'maxHeight':'2ch'}}/>
                     <p
+                        id="experiments"
                         effect="Experiments"
                         onMouseOver={handleHover}
                         onMouseLeave={handleLeave}
-                        onClick={()=> navigate('expirements')}
-                        className=''
                     >
                         Experiments
                     </p>

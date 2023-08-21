@@ -7,10 +7,12 @@ export default function Statement() {
     const [currentText, setCurrentText] = useState('');
     const statement = "  Hello! My name is Charles and I am a full-stack Software Engineer. Welcome to my portfolio site!"
     const [finished, setFinished] = useState(false)
+    const [placeholder, setPlaceHolder] = useState("  Hello! My name is Charles and I am a full-stack Software Engineer. Welcome to my portfolio site!")
 
     useEffect(() => {
         if (index.current < statement.length) {
             setTimeout(() => {
+                setPlaceHolder((value)=> value = placeholder.replace(placeholder.charAt(0),''))
                 setCurrentText((value) => value + statement.charAt(index.current));
                 index.current += 1;
             }, 100);
@@ -19,12 +21,13 @@ export default function Statement() {
                 setFinished(true)
             }, 115);
         }
-    }, [currentText, statement,finished]);
+    }, [currentText, statement, finished]);
 
     return (
         <div>
             <div className="statement">
-                <h3>{currentText}{!finished ? <TextLoader finished={finished}/> : null} </h3>
+                <h3 >{currentText}{!finished ? <TextLoader finished={finished} /> : null} </h3>
+                <h3 className="statement-ph">{placeholder}</h3>
             </div>
         </div>
     )
