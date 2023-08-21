@@ -2,20 +2,29 @@ import { useEffect, useState } from "react"
 
 export default function TextLoader(props) {
     const [currentText, setCurrentText] = useState('');
-
-
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!.-"
 
     useEffect(() => {
-        while(props.finished) {
+        let cancelid;
+        function changes() {
             setTimeout(() => {
-                setCurrentText(characters.charAt(Math.random()*(characters.length-1)))
-            },505);
+                if (props.finished === false) {
+                    setCurrentText(characters.charAt(Math.random()*(characters.length-1)));
+                    cancelid=requestAnimationFrame(changes)
+                } else {
+                    return ()=> cancelAnimationFrame(cancelid)
+                }
+            }, 50);
         }
+        changes();
+        return ()=> cancelAnimationFrame(cancelid)
     },[props.finished])
-    return (
-        <div className="text-load">{currentText}</div>
-    )
+
+
+        return (
+            <div className="text-load">{currentText}</div>
+        )
+
 
     }
 

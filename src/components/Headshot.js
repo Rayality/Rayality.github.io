@@ -10,9 +10,10 @@ export default function Headshot(props) {
         canv.width = 490;
         canv.height = 564;
         let particles = [];
-        const numberOfParticles = 3000;
+        const numberOfParticles = 2000;
         ctx.drawImage(picture, 0, 0, canv.width, canv.height)
         const pixels = ctx.getImageData(0, 0, canv.width, canv.height);
+        console.log(pixels)
         ctx.clearRect(0, 0, canv.width, canv.height)
 
         let imageMap = [];
