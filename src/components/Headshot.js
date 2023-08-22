@@ -3,21 +3,23 @@ import { useRef } from 'react';
 
 export default function Headshot(props) {
     let animID = useRef();
+    // window.addEventListener('resize', handleResize)
+    // let reload = 0
+    // function handleResize() {
+    //     reload+=1
+    // }
     useEffect(() => {
         const picture = props.picture
         const canv = document.getElementById('head');
         const ctx = canv.getContext('2d');
-        canv.width = 441;
-        canv.height = 508;
+        canv.width = 500;
+        canv.height = 600;
         let particles = [];
-        const numberOfParticles = 2000;
+        const numberOfParticles = 1500;
         ctx.drawImage(picture, 0, 0, canv.width, canv.height)
         const pixels = ctx.getImageData(0, 0, canv.width, canv.height);
-        console.log(pixels)
         ctx.clearRect(0, 0, canv.width, canv.height)
-
         let imageMap = [];
-
         for (let y = 0; y < canv.height; y++) {
             let row = [];
             for (let x = 0; x < canv.width; x++) {
@@ -44,16 +46,17 @@ export default function Headshot(props) {
                 this.x = (Math.random() * canv.width);
                 this.y = 0;
                 this.speed = 0;
-                this.velocity = Math.random() * 0.5;
-                this.size = Math.random() * 1.5 + 1;
+                this.velocity = Math.random() * 2;
+                this.size = 135.5 ;
                 this.position1 = Math.floor(this.y);
                 this.position2 = Math.floor(this.x);
+                this.chars = "ア1ァA3カU2サBタ5ナGハ4マVヤYャC7ラDワガ9ザTダバDパイ8ィキHシチニヒMミリヰギNジZヂビOピ6ウゥクRスツKヌフFムユュルグLズJブヅプQエェケセテPネヘメレヱゲSゼデベEペオォコソトホモヨョロヲゴIゾドボポヴッン"
             }
             update() {
                 this.position1 = Math.floor(this.y);
                 this.position2 = Math.floor(this.x);
-                this.speed = imageMap[this.position1][this.position2][0];
-                let movement = (2.5 - this.speed) + this.velocity;
+                this.speed = imageMap[this.position1][this.position2][0]*.7;
+                let movement = (2.1 - this.speed) + this.velocity;
                 this.y += movement;
 
                 if (this.y >= canv.height) {
@@ -63,8 +66,8 @@ export default function Headshot(props) {
             }
             draw() {
                 ctx.beginPath();
-                ctx.fillStyle = 'rgb(10, 201, 0)';
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgb(50, 201, 20)';
+                ctx.fillText(this.chars.charAt(Math.random()*this.chars.length),this.x, this.y);
                 ctx.fill();
             }
         }
@@ -83,7 +86,7 @@ export default function Headshot(props) {
             ctx.globalAlpha = .2;
             particles.forEach((particle) => {
                 particle.update();
-                ctx.globalAlpha = particle.speed * 0.04;
+                ctx.globalAlpha = particle.speed * 0.15;
                 particle.draw();
             })
             cancelAnimationFrame(animID.current)

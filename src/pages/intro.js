@@ -33,6 +33,9 @@ export default function Intro() {
                 {loaded ?  <Headshot picture={picture.current} />:null}
                 <Statement />
             </section>
+            <section className="projects" >
+                
+            </section>
         </div>
     )
 }
