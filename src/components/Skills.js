@@ -13,9 +13,9 @@ export default function Skills() {
         "CSS",
         "HTML",
         "Git",
-        
+
     ]
     return (
-
+        
     )
 }

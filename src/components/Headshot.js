@@ -15,7 +15,7 @@ export default function Headshot(props) {
         canv.width = 500;
         canv.height = 600;
         let particles = [];
-        const numberOfParticles = 1500;
+        const numberOfParticles = 2000;
         ctx.drawImage(picture, 0, 0, canv.width, canv.height)
         const pixels = ctx.getImageData(0, 0, canv.width, canv.height);
         ctx.clearRect(0, 0, canv.width, canv.height)
@@ -86,7 +86,7 @@ export default function Headshot(props) {
             ctx.globalAlpha = .2;
             particles.forEach((particle) => {
                 particle.update();
-                ctx.globalAlpha = particle.speed * 0.15;
+                ctx.globalAlpha = particle.speed * 0.1;
                 particle.draw();
             })
             cancelAnimationFrame(animID.current)
