@@ -1,15 +1,47 @@
+.skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .skill-container {
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
+    /* grid-template-columns: 1fr; */
+    /* grid-template-rows: 1fr; */
+    /* grid-auto-flow: dense; */
+    height: min-content;
     gap: 2rem;
-    padding: 1rem;
+}
+
+
+.skill{
+    display: flex;
+    flex-direction: column;
+    height: 8rem;
+    width: 7.5rem;
+    border-radius: 2rem;
+    justify-content: space-between;
+    /* grid-template-columns: 1fr; */
+    /* grid-template-rows: 1fr; */
+    background: var(--gray);
+    padding: .5rem .5rem 0;
+    /* width: fit-content; */
+    box-shadow: 0 0 1rem 1px var(--bgreen);
 }
 
 .skill-img{
-    background: rgb(41, 39, 39);
-    padding: 2rem;
-    height: 8rem;
-    border-radius: 2rem;
-    box-shadow: 0 0 1rem .4rem slategray;
+    height: 5rem;
+    /* width: 5.5rem; */
+    padding: .3rem 0 0;
+}
+
+.skill-img.dj{
+    fill: white;
+}
+
+.skill p {
+    text-align: center;
+    line-height: .8rem;
+    padding: .2rem 0 0;
+    /* text-align: bottom; */
 }

@@ -27,7 +27,7 @@ export default function Intro() {
                 </div>
                 <Statement />
             </section>
-            <section className="skills" >
+            <section className="" >
                 <Skills/>
             </section>
             <section className="projects">

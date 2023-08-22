@@ -7,6 +7,7 @@
       conic-gradient(from -160deg at right, #0000, #000 1deg 139deg, #0000 140deg) right/51% 1.65rem repeat-y;
   --bgreen: rgb(18, 211, 1);
   --dgreen: rgba(0,255,55,0.267);
+  --gray: rgb(59 59 59);
 }
 
 a {
@@ -64,12 +65,12 @@ code {
   padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: 0px 0px 15px 2px rgba(255, 255, 255, 0.849);
-  background-color: rgba(255, 255, 255, 0.192);
+  background-color: var(--gray);
   backdrop-filter: blur(8px);
 }
 
 .statement {
-  flex: 0 1 10%;
+  display: grid;
   color: var(--bgreen);
   text-align: start;
   padding: 1.5rem;
@@ -78,7 +79,6 @@ code {
   background-color: rgba(255, 255, 255, 0.178);
   backdrop-filter: blur(8px);
   width: 30vw;
-  /* min-height: 10rem; */
 }
 
 .statement h3 {
@@ -100,7 +100,7 @@ code {
 
 .pic-container {
   position: relative;
-  margin:1rem;
+  margin: 1rem;
 }
 
 .profilepic {

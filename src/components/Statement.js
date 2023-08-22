@@ -8,6 +8,8 @@ export default function Statement() {
     const statement = "  Hello! My name is Charles and I am a full-stack Software Engineer. Welcome to my portfolio site!"
     const [finished,setFinished] = useState(false)
     const [placeholder, setPlaceHolder] = useState("  Hello! My name is Charles and I am a full-stack Software Engineer. Welcome to my portfolio site!")
+    const openp = "<p>"
+    const closep = "</p>"
 
     useEffect(() => {
         if (index.current < statement.length) {
@@ -24,8 +26,9 @@ export default function Statement() {
     return (
         <div>
             <div className="statement">
+
                 <h3 >{currentText}{finished===false ? <TextLoader finished={finished} ind={index.current} /> : null} </h3>
-                <h3 className="statement-ph">{placeholder}</h3>
+                {/* <h3 className="statement-ph">{placeholder}</h3> */}
             </div>
         </div>
     )

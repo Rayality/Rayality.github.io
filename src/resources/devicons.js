@@ -7,7 +7,7 @@ const gitIcon = <img className="skill-img" src="https://cdn.jsdelivr.net/gh/devi
 
 const fastapiIcon = <img className="skill-img" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" />
 
-const djangoIcon = <img className="skill-img" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" />
+const djangoIcon = <img className="skill-img dj" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" />
 
 const pythonIcon = <img className="skill-img" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
 

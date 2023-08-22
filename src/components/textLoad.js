@@ -21,11 +21,9 @@ export default function TextLoader(props) {
     },[])
 
 
-        return (
-            <div className="text-load">{currentText}</div>
-        )
-
-
-    }
+    return (
+        <div className="text-load">{currentText}</div>
+    )
+}
 
     // ア1ァA3カU2サBタ5ナGハ4マVヤYャC7ラDワガ9ザTダバDパイ8ィキHシチニヒMミリヰギNジZヂビOピ6ウゥクRスツKヌフFムユュルグLズJブヅプQエェケセテPネヘメレヱゲSゼデベEペオォコソトホモヨョロヲゴIゾドボポヴッン

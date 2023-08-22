@@ -18,48 +18,65 @@ export default function Skills() {
     ]
 
     return (
-        <div className='skill-container'>
-            <div className='skill'>
-                {i.bootstrapIcon}
-            </div>
-            <div className='skill'>
-                {i.cIcon}
-            </div>
-            <div className='skill'>
-                {i.cssIcon}
-            </div>
-            <div className='skill'>
-                {i.dockerIcon}
-            </div>
-            <div className='skill'>
-                {i.djangoIcon}
-            </div>
-            <div className='skill'>
-                {i.fastapiIcon}
-            </div>
-            <div className='skill'>
-                {i.gitIcon}
-            </div>
-            <div className='skill'>
-                {i.htmlIcon}
-            </div>
-            <div className='skill'>
-                {i.javaIcon}
-            </div>
-            <div className='skill'>
-                {i.jsIcon}
-            </div>
-            <div className='skill'>
-                {i.pythonIcon}
-            </div>
-            <div className='skill'>
-                {i.postgresIcon}
-            </div>
-            <div className='skill'>
-                {i.reduxIcon}
-            </div>
-            <div className='skill'>
-                {i.reactIcon}
+        <div className='skills'>
+            <div className='?'></div>
+            <div className='skill-container'>
+                <div className='skill'>
+                    {i.bootstrapIcon}
+                    <p>Bootstrap</p>
+                </div>
+                <div className='skill'>
+                    {i.cIcon}
+                    <p>C</p>
+                </div>
+                <div className='skill'>
+                    {i.cssIcon}
+                    <p>CSS</p>
+                </div>
+                <div className='skill'>
+                    {i.dockerIcon}
+                    <p>Docker</p>
+                </div>
+                <div className='skill'>
+                    {i.djangoIcon}
+                    <p>Django</p>
+                </div>
+                <div className='skill'>
+                    {i.fastapiIcon}
+                    <p>FastAPI</p>
+                </div>
+                <div className='skill'>
+                    {i.gitIcon}
+                    <p>Git</p>
+                </div>
+                <div className='skill'>
+                    {i.htmlIcon}
+                    <p>HTML</p>
+                </div>
+                <div className='skill'>
+                    {i.javaIcon}
+                    <p>Java</p>
+                </div>
+                <div className='skill'>
+                    {i.jsIcon}
+                    <p>Javascript</p>
+                </div>
+                <div className='skill'>
+                    {i.pythonIcon}
+                    <p>Python</p>
+                </div>
+                <div className='skill'>
+                    {i.postgresIcon}
+                    <p>PostgreSQL</p>
+                </div>
+                <div className='skill'>
+                    {i.reduxIcon}
+                    <p>Redux</p>
+                </div>
+                <div className='skill'>
+                    {i.reactIcon}
+                    <p>React</p>
+                </div>
             </div>
         </div>
     )
