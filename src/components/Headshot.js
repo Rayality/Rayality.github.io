@@ -80,7 +80,7 @@ export default function Headshot(props) {
         init();
 
         function animate() {
-            ctx.globalAlpha = .02;
+            ctx.globalAlpha = .015;
             ctx.fillStyle = 'rgb(0, 0, 0)';
             ctx.fillRect(0, 0, canv.width, canv.height);
             ctx.globalAlpha = .2;

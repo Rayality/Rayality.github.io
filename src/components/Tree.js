@@ -19,7 +19,7 @@ function SketchBG() {
     }
 
     const setup = (p5, canvasParentRef) => {
-        p5.createCanvas(window.innerWidth/4, window.innerHeight/2).parent(canvasParentRef)
+        p5.createCanvas(window.innerWidth/3, window.innerHeight/1.8).parent(canvasParentRef)
         p5.background('rgb( 0,0,0)')
         console.log()
     }
@@ -31,7 +31,7 @@ function SketchBG() {
         branch((p5.displayWidth*.7-userY)*.7 / 10);
 
         function branch(len) {
-            p5.stroke(150-len,150-len*2,150-len*3,150+len*5);
+            p5.stroke(150-len,150-len*2,150-len*3);
             p5.strokeWeight(len * .15);
 
             if (Math.floor(len)>25) {

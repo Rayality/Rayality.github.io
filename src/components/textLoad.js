@@ -18,7 +18,7 @@ export default function TextLoader(props) {
         }
         changes();
         return ()=> cancelAnimationFrame(cancelid)
-    },[props.finished])
+    },[])
 
 
         return (

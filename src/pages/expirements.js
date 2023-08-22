@@ -1,25 +1,48 @@
 import Tree from '../components/Tree'
 import Digital from '../components/Digital'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import '../css/experiment.css'
+import { useDispatch, useSelector } from "react-redux"
+import { setCanvasState } from "../Redux/canvasSlice"
+import head from '../resources/headshot.png'
+import Headshot from "../components/Headshot"
 
 export default function Expirements() {
+    let picture = useRef();
+    const [loaded, setLoaded] = useState(false)
+    const [shown, setShown] = useState('digital')
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        // Digital()
+        picture.current = new Image()
+        picture.current.src = head;
+        picture.current.addEventListener('load', handleLoaded)
     }, [])
 
-    const [shown, setShown] = useState('digital')
+    function handleLoaded() {
+        setLoaded(true)
+        dispatch(setCanvasState(true))
+    }
+
 
     function handleExpirement(e) {
-        let canv = document.getElementById('rain')
+        let rain = document.getElementById('rain')
+        let head = document.getElementById('head')
         switch (e.target.name) {
             case 'digital':
-                canv.classList.remove('d-none')
+                rain.classList.remove('d-none')
+                head.classList.add('d-none')
                 setShown('digital');
                 break;
             case 'tree':
-                canv.classList.add('d-none')
+                rain.classList.add('d-none')
+                head.classList.add('d-none')
                 setShown('tree');
+                break;
+            case 'head':
+                rain.classList.add('d-none')
+                head.classList.remove('d-none')
+                setShown('head')
                 break;
             default:
                 break;
@@ -31,10 +54,13 @@ export default function Expirements() {
             <div className='buttons'>
                 <button className='exp-button' onClick={handleExpirement} name='digital'>Digital Rain</button>
                 <button className='exp-button' onClick={handleExpirement} name='tree'>Fractal Tree</button>
+                <button className='exp-button' onClick={handleExpirement} name='head'>Digital Image</button>
             </div>
             <div className='experiment-wrapper'>
                 <div className="experiment">
                     <canvas id='rain' className="d-none" />
+                    <canvas id='head' className="image-canvas d-none"/>
+                    {shown === 'head' ? loaded ?  <Headshot picture={picture.current} />: null : null}
                     {shown === 'digital' ? <Digital/>:null}
                     {shown === 'tree' ? <Tree /> : null}
                 </div>

@@ -1,0 +1,15 @@
+.skill-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.skill-img{
+    background: rgb(41, 39, 39);
+    padding: 2rem;
+    height: 8rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem .4rem slategray;
+}

@@ -6,7 +6,7 @@ export default function Statement() {
     const index = useRef(0)
     const [currentText, setCurrentText] = useState('');
     const statement = "  Hello! My name is Charles and I am a full-stack Software Engineer. Welcome to my portfolio site!"
-    const finished = useRef(false)
+    const [finished,setFinished] = useState(false)
     const [placeholder, setPlaceHolder] = useState("  Hello! My name is Charles and I am a full-stack Software Engineer. Welcome to my portfolio site!")
 
     useEffect(() => {
@@ -17,14 +17,14 @@ export default function Statement() {
                 index.current += 1;
             }, 100);
         } else {
-            finished.current=(true)
+            setFinished(true)
         }
-    }, [index.current, finished]);
+    }, [placeholder,finished]);
 
     return (
         <div>
             <div className="statement">
-                <h3 >{currentText}{finished.current===false ? <TextLoader finished={finished.current} ind={index.current} /> : null} </h3>
+                <h3 >{currentText}{finished===false ? <TextLoader finished={finished} ind={index.current} /> : null} </h3>
                 <h3 className="statement-ph">{placeholder}</h3>
             </div>
         </div>

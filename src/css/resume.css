@@ -8,7 +8,6 @@
     align-items: center;
     padding: 3rem 1rem;
     gap: 2rem;
-    /* margin: 0rem 1vw 4vh; */
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -17,29 +16,12 @@
     color: black;
     text-align: start;
     width: 90%;
-    /* margin: 0rem 5vw 4vh 8vw; */
     padding: 3vh 4vw;
     overflow: hidden;
     height: max-content;
     -webkit-mask: var(--mask);
     mask: var(--mask);
 }
-
-/* .scroll {
-    position: relative;
-    border-radius: 3rem;
-
-    z-index: 1;
-    margin: 0 2rem;
-    box-shadow: 0 5px 15px 10px rgb(99, 97, 97, .8);
-    background: no-repeat center/100% url('../resources/scroll.png');
-}
-
-.seal {
-    position: relative;
-    width: 15%;
-    inset: 43%;
-} */
 
 .me {
     font-family: 'Dancing Script', cursive;
