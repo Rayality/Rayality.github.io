@@ -19,7 +19,7 @@ header {
 
 .nav-bar * {
     display: inline;
-    font-size: clamp(.8rem, 1.5vw + .2rem, 2rem);
+    font-size: clamp(1rem, 1.5vw + .2rem, 2rem);
     color: var(--bgreen);
     background-color: rgba(0, 0, 0, 0);
 }
@@ -39,7 +39,7 @@ header {
     display: flex;
     gap: clamp(1px, 4vw, 10rem);
 }
-@media (max-width:400px){
+@media (max-width:500px){
     .nav-wrap{
         gap: 0;
     }

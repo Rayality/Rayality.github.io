@@ -19,7 +19,7 @@ function SketchBG() {
     }
 
     const setup = (p5, canvasParentRef) => {
-        p5.createCanvas(window.innerWidth/3, window.innerHeight/1.8).parent(canvasParentRef)
+        p5.createCanvas(Math.max(window.innerWidth/3,400), window.innerHeight/1.8).parent(canvasParentRef)
         p5.background('rgb( 0,0,0)')
         console.log()
     }
@@ -28,7 +28,7 @@ function SketchBG() {
         p5.frameRate(20);
         p5.background('rgba(1,2,3,1)');
         p5.translate(p5.width / 2, p5.height);
-        branch((p5.displayWidth*.7-userY)*.7 / 10);
+        branch((window.innerHeight-userY*.8) / 10);
 
         function branch(len) {
             p5.stroke(150-len,150-len*2,150-len*3);
@@ -72,7 +72,7 @@ function SketchBG() {
     };
 
     const windowResized = p5 => {
-        p5.resizeCanvas(p5.windowWidth/4, p5.windowHeight/2);
+        p5.resizeCanvas(Math.max(window.innerWidth/3,400), p5.windowHeight/2);
     }
 
     return (
