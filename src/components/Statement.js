@@ -24,7 +24,7 @@ export default function Statement() {
     }, [placeholder,finished]);
 
     return (
-        <div>
+        <div style={{width:'100%'}}>
             <div className="statement">
 
                 <h3 >{currentText}{finished===false ? <TextLoader finished={finished} ind={index.current} /> : null} </h3>

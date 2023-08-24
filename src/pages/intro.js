@@ -29,7 +29,7 @@ export default function Intro() {
             </section>
             <section className="skills-section" >
                 <div className="skills-section-bg"/>
-                <p>Tech that I use regularly for my projects</p>
+                <p className="skills-text" style={{fontWeight:'500'}}>Tech that I use regularly for my projects</p>
                 <Skills/>
             </section>
             <section className="projects">

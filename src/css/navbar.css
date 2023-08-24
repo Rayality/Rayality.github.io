@@ -12,14 +12,14 @@ header {
     align-items: center;
     align-content: center;
     justify-content: space-between;
-    padding: .5rem clamp(1rem, 3.5vw, 5rem);
+    padding: .5rem clamp(.5rem, 3.5vw, 5rem);
     background-color: rgba(27, 20, 75, 0.781);
     backdrop-filter: blur(15px);
 }
 
 .nav-bar * {
     display: inline;
-    font-size: clamp(1rem, 3.5vw, 2rem);
+    font-size: clamp(.8rem, 1.5vw + .2rem, 2rem);
     color: var(--bgreen);
     background-color: rgba(0, 0, 0, 0);
 }
@@ -28,6 +28,7 @@ header {
     display: flex;
     align-items: center;
     gap: .5rem;
+    padding: 0;
 }
 
 .nav-bar p {
@@ -36,9 +37,16 @@ header {
 
 .nav-wrap {
     display: flex;
-    gap: clamp(1px, 2.5vw, 4rem);
+    gap: clamp(1px, 4vw, 10rem);
 }
-
+@media (max-width:400px){
+    .nav-wrap{
+        gap: 0;
+    }
+    .nav-bar button{
+        gap: 0;
+    }
+}
 .glitch {
     position: relative;
     animation: glitchy 1.6s alternate-reverse infinite;

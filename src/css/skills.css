@@ -1,16 +1,25 @@
 .skills-section {
+    overflow-y: clip;
     position: relative;
+    padding: 3rem 0;
     display: grid;
-    grid-template-rows: .5fr 1fr;
+    grid-template-rows: .5fr;
     grid-template-columns: 1fr;
     justify-items: center;
     width: 100%;
-    height: clamp(15rem, 5vh + 2rem, 25vh);
-    /* overflow: hidden; */
+    gap: 1rem;
 }
 
 .skills-section-bg {
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 100%;
+    background-color: var(--gray);
+}
 
+.skills-text {
+    font-size: clamp(.8rem, 1.5vw + .2rem, 2rem)
 }
 
 /* -------------- skill containers ----------------- */
@@ -18,10 +27,10 @@
     height: 8rem;
     min-width: 3rem;
     border-radius: 2rem;
-    background: var(--gray);
+    background: #221d48;
     padding: .5rem .5rem 0;
     /* margin: .5rem 0; */
-    box-shadow: 0 0 1rem 1px var(--bgreen);
+    box-shadow: 0 0 1rem 5px var(--dgreen);
 }
 
 .skill-img{
@@ -38,10 +47,10 @@
 /* ----slider related items (skill changes in media queries)---- */
 .slider-overlay {
     position: absolute;
-    z-index: 99999;
+    z-index: 3;
     width: 100%;
     height: 10rem;
-    background: linear-gradient(0.25turn,#111 0%, #ffffff00 20%,#ffffff00 80%, #111 100%);
+    background: linear-gradient(0.25turn,var(--gray) 5%, #ffffff00 30%,#ffffff00 60%, var(--gray) 95%);
 }
 .slider-container {
     display: flex;
@@ -50,7 +59,6 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     width: 100%;
-    height: 30rem;
     overflow: hidden;
 }
 
@@ -64,7 +72,7 @@
     padding: 0 .3rem;
     opacity: .3;
     transform: scale(0.65);
-    transition: 1s ease-in-out;
+    transition: .8s ease-in-out;
 }
 
 .slide .slick-list .slick-active {
@@ -80,10 +88,7 @@
         height: 7rem;
         min-width: 2rem;
         border-radius: 1.5rem;
-        background: var(--gray);
         padding: .5rem .3rem 0;
-        /* margin: .3rem 0; */
-        box-shadow: 0 0 1rem 1px var(--bgreen);
     }
 
     .skill-img {
@@ -98,19 +103,11 @@
     }
 
     .slide .slick-slide {
-        margin: .4rem 0;
         padding: 0 .3rem;
-        opacity: .3;
-        transform: scale(0.65);
-        transition: 1s ease-in-out;
     }
     .slide .slick-list .slick-active {
-        /* display: block; */
         margin: .4rem 0;
         padding: 0 .3rem;
-        opacity: 1;
-        transform: scale(.79);
-        transition: 1s ease-in-out;
     }
 }
 
@@ -119,10 +116,11 @@
         height: 5.5rem;
         min-width: 3rem;
         border-radius: 1rem;
-        background: var(--gray);
         padding: .4rem .1rem 0;
-        /* margin: 0 0; */
-        box-shadow: 0 0 1rem 1px var(--bgreen);
+    }
+
+    .slider-overlay{
+        background: linear-gradient(0.25turn, var(--gray) 0%, #ffffff00 25%, #ffffff00 75%, var(--gray) 100%);
     }
 
     .skill-img {
@@ -144,17 +142,10 @@
     .slide .slick-slide {
         margin: .4rem 0;
         padding: 0 .1rem;
-        opacity: .3;
-        transform: scale(0.65);
-        transition: 1s ease-in-out;
     }
 
     .slide .slick-list .slick-active {
-        /* display: block; */
         margin: .4rem 0;
         padding: 0 .1rem;
-        opacity: 1;
-        transform: scale(.79);
-        transition: 1s ease-in-out;
     }
 }
