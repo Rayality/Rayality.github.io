@@ -1,30 +1,58 @@
 import * as i from '../resources/devicons'
 import '../css/skills.css'
+import Slider from 'react-slick'
+
 
 export default function Skills() {
-    const langsAndFrames = [
-        "Python",
-        "FastAPI",
-        "Django",
-        "PostgreSQL",
-        "JS",
-        "React",
-        "Redux",
-        "Java",
-        "CSS",
-        "HTML",
-        "Git",
-        "Docker"
-    ]
+    const settings = {
+        className: 'slide',
+        focusOnSelect: true,
+        variableWidth: true,
+        adaptiveHeight: false,
+        centerMode: true,
+        // easing: 'ease-in-out',
+        swipeToSlide: true,
+        infinite: true,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        speed: 900,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 824,
+                settings: {
+                    centerPadding: 0,
+                    className: 'slide',
+                    focusOnSelect: true,
+                    variableWidth: true,
+                    adaptiveHeight: false,
+                    centerMode: true,
+                    // easing: 'ease-in-out',
+                    swipeToSlide: true,
+                    infinite: true,
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 1500,
+                    speed: 900,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    };
 
     return (
-        <div className='skills'>
-            <div className='?'></div>
-            <div className='skill-container'>
+        <div className='slider-container'>
+            <div className='slider-overlay'/>
+            <Slider {...settings}>
+                <div>
                 <div className='skill'>
                     {i.bootstrapIcon}
                     <p>Bootstrap</p>
-                </div>
+                    </div>
+                    </div>
                 <div className='skill'>
                     {i.cIcon}
                     <p>C</p>
@@ -77,7 +105,7 @@ export default function Skills() {
                     {i.reactIcon}
                     <p>React</p>
                 </div>
-            </div>
+            </Slider>
         </div>
     )
 }

@@ -1,47 +1,160 @@
-.skills {
+.skills-section {
+    position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .5fr 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    width: 100%;
+    height: clamp(15rem, 5vh + 2rem, 25vh);
+    /* overflow: hidden; */
 }
 
-.skill-container {
-    display: flex;
-    flex-wrap: wrap;
-    /* grid-template-columns: 1fr; */
-    /* grid-template-rows: 1fr; */
-    /* grid-auto-flow: dense; */
-    height: min-content;
-    gap: 2rem;
+.skills-section-bg {
+
 }
 
-
+/* -------------- skill containers ----------------- */
 .skill{
-    display: flex;
-    flex-direction: column;
     height: 8rem;
-    width: 7.5rem;
+    min-width: 3rem;
     border-radius: 2rem;
-    justify-content: space-between;
-    /* grid-template-columns: 1fr; */
-    /* grid-template-rows: 1fr; */
     background: var(--gray);
     padding: .5rem .5rem 0;
-    /* width: fit-content; */
+    /* margin: .5rem 0; */
     box-shadow: 0 0 1rem 1px var(--bgreen);
 }
 
 .skill-img{
     height: 5rem;
-    /* width: 5.5rem; */
-    padding: .3rem 0 0;
-}
-
-.skill-img.dj{
-    fill: white;
+    padding: 0 1rem;
+    margin-bottom: .2rem;
+    margin-inline: auto;
 }
 
 .skill p {
     text-align: center;
-    line-height: .8rem;
-    padding: .2rem 0 0;
-    /* text-align: bottom; */
+    line-height: 2rem;
+}
+/* ----slider related items (skill changes in media queries)---- */
+.slider-overlay {
+    position: absolute;
+    z-index: 99999;
+    width: 100%;
+    height: 10rem;
+    background: linear-gradient(0.25turn,#111 0%, #ffffff00 20%,#ffffff00 80%, #111 100%);
+}
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    width: 100%;
+    height: 30rem;
+    overflow: hidden;
+}
+
+.slide {
+    display: flex;
+    padding: 0 .3rem;
+}
+
+.slide .slick-slide {
+    margin: .4rem 0;
+    padding: 0 .3rem;
+    opacity: .3;
+    transform: scale(0.65);
+    transition: 1s ease-in-out;
+}
+
+.slide .slick-list .slick-active {
+    margin: .4rem 0;
+    padding: 0 .3rem;
+    opacity: 1;
+    transform: scale(.79);
+    transition: 1s ease-in-out;
+}
+
+@media (max-width: 800px) {
+    .skill {
+        height: 7rem;
+        min-width: 2rem;
+        border-radius: 1.5rem;
+        background: var(--gray);
+        padding: .5rem .3rem 0;
+        /* margin: .3rem 0; */
+        box-shadow: 0 0 1rem 1px var(--bgreen);
+    }
+
+    .skill-img {
+        height: 4rem;
+        padding: 0 1rem;
+        margin-inline: auto;
+    }
+
+    .slide {
+        display: flex;
+        padding: 0 .3rem;
+    }
+
+    .slide .slick-slide {
+        margin: .4rem 0;
+        padding: 0 .3rem;
+        opacity: .3;
+        transform: scale(0.65);
+        transition: 1s ease-in-out;
+    }
+    .slide .slick-list .slick-active {
+        /* display: block; */
+        margin: .4rem 0;
+        padding: 0 .3rem;
+        opacity: 1;
+        transform: scale(.79);
+        transition: 1s ease-in-out;
+    }
+}
+
+@media (max-width: 550px) {
+    .skill {
+        height: 5.5rem;
+        min-width: 3rem;
+        border-radius: 1rem;
+        background: var(--gray);
+        padding: .4rem .1rem 0;
+        /* margin: 0 0; */
+        box-shadow: 0 0 1rem 1px var(--bgreen);
+    }
+
+    .skill-img {
+        height: 3rem;
+        padding: 0 1rem;
+        margin-inline: auto;
+    }
+
+    .skill p {
+        text-align: center;
+        line-height: 1.5rem;
+    }
+
+    .slide {
+        display: flex;
+        padding: 0 .1rem;
+    }
+
+    .slide .slick-slide {
+        margin: .4rem 0;
+        padding: 0 .1rem;
+        opacity: .3;
+        transform: scale(0.65);
+        transition: 1s ease-in-out;
+    }
+
+    .slide .slick-list .slick-active {
+        /* display: block; */
+        margin: .4rem 0;
+        padding: 0 .1rem;
+        opacity: 1;
+        transform: scale(.79);
+        transition: 1s ease-in-out;
+    }
 }
