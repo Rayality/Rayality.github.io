@@ -1,21 +1,14 @@
-import Tree from "../components/Tree"
-// import Digital from '../components/Digital'
 import '../css/intro.css'
 import Statement from '../components/Statement'
 import { useEffect } from 'react'
 import Skills from "../components/Skills"
 import head from '../resources/headshot.png'
+import { Contact } from '../components/Email'
 
 export default function Intro() {
-
-
-
-
     useEffect(() => {
 
     },[])
-
-
 
     return (
         <div className="front-page">
@@ -27,13 +20,16 @@ export default function Intro() {
                 </div>
                 <Statement />
             </section>
+            <section className="projects">
+
+            </section>
             <section className="skills-section" >
-                <div className="skills-section-bg"/>
+                <div className="gray-section-bg"/>
                 <p className="skills-text" style={{fontWeight:'500'}}>Tech that I use regularly for my projects</p>
                 <Skills/>
             </section>
-            <section className="projects">
-
+            <section>
+                <Contact/>
             </section>
         </div>
     )

@@ -8,6 +8,7 @@
   --bgreen: rgb(18, 211, 1);
   --dgreen: rgba(0,255,55,0.267);
   --gray: rgb(59 59 59);
+  --blue: rgb(26 21 64);
 }
 
 a {
@@ -31,6 +32,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
+}
+
+.gray-section-bg {
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 100%;
+  background-color: var(--gray);
 }
 
 .outlet {

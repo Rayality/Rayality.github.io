@@ -6,7 +6,7 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
-    padding: 3rem 1rem;
+    padding: 1rem;
     gap: 2rem;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -25,11 +25,13 @@
 
 .me {
     font-family: 'Dancing Script', cursive;
-    font-size:4rem;
+    font-size:clamp(2rem, 5vw + .3rem, 4rem);
 }
 
 .page h4 {
+    font-size: clamp(.9rem, 1.4vw + .1rem, 2rem);
     font-weight: 600;
+    /* width: max-content; */
 }
 
 .bg-image {
@@ -44,38 +46,41 @@
 
 .page h2 {
     text-align: center;
+    font-size: clamp(1rem, 1.5vw + .5rem, 2rem);
     font-weight: 600;
 }
 
 .page p {
-    font-size: 1.1rem;
+    font-size: clamp(.7rem, 1.3vw + .1rem, 2rem);
     font-weight: 600;
     color: rgba(0, 0, 0, 0.8);
-    line-height: 1rem;
+    line-height: clamp(1rem, 1.5vw + .2rem, 2rem);
     margin: .5rem;
 }
 
 .page h4 p {
     display: inline;
-    font-size: 1.5rem;
+    font-size: clamp(.9rem, 1.5vw + .2rem, 2rem);
     font-weight: 400;
 }
 
 .info-date {
     display: grid;
     width: 100%;
-    grid-template-columns: 3fr .5fr;
+    grid-template-columns: 6fr 1fr;
     grid-row: 1;
 }
 
 .info-date div {
     text-align: end;
+    font-size: clamp(.7rem, 1.5vw + .2rem, 2rem);
 }
 
 .page li {
     max-width: 80ch;
-    font-size: 1.4rem;
+    font-size: clamp(.7rem, 1.5vw + .1rem, 2rem);
     font-weight: 500;
+    line-height: clamp(.9rem, 1.5vw + .3rem, 2rem);
 }
 
 .download {
@@ -90,9 +95,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: .8vw;
-    letter-spacing: .06vw;
+    font-size: clamp(.6rem, 1.5vw + .2rem, 1rem);
     font-weight: 600;
+    padding: .2rem;
     font-family: 'Electrolize', sans-serif;
     color: var(--bgreen);
     border-radius: .5rem;
@@ -101,8 +106,9 @@
 }
 
 .dl-image {
-    max-width: 5rem;
-    height: 5rem;
+    /* width: clamp(3rem, 5.5vw + .5rem, 10vw); */
+    height: clamp(3rem, 6.5vw + .6rem, 6rem);
+
 }
 
 .dl.left {

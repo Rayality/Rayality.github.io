@@ -19,7 +19,7 @@ header {
 
 .nav-bar * {
     display: inline;
-    font-size: clamp(1rem, 1.5vw + .2rem, 2rem);
+    font-size: clamp(1.1rem, 1.5vw + .2rem, 2rem);
     color: var(--bgreen);
     background-color: rgba(0, 0, 0, 0);
 }
