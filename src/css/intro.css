@@ -1,18 +1,14 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing:border-box;
+  /* box-sizing:border-box; */
   --mask:
       conic-gradient(from 20deg at left, #0000, #000 1deg 139deg, #0000 140deg) left/51% 1.65rem repeat-y,
       conic-gradient(from -160deg at right, #0000, #000 1deg 139deg, #0000 140deg) right/51% 1.65rem repeat-y;
-  --bgreen: rgb(18, 211, 1);
+  --bgreen: rgb(13, 153, 0);
   --dgreen: rgba(0,255,55,0.267);
   --gray: rgb(59 59 59);
   --blue: rgb(26 21 64);
-}
-
-a {
-  text-decoration: none;
 }
 
 body {
@@ -20,6 +16,7 @@ body {
   padding: 0;
   background: #111 center center fixed;
   width: 100%;
+  /* min-height: 100vh; */
   height: 100%;
   overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -29,9 +26,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  min-height: 100vh;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
+}
+
+footer {
+  display: flex;
+  align-self: normal;
+  position: sticky;
+  width: 100%;
+  top: 100%;
+}
+
+
+a {
+  text-decoration: none;
 }
 
 .gray-section-bg {
@@ -44,23 +58,32 @@ code {
 
 .outlet {
   color: var(--bgreen);
-  padding-bottom: 0;
-  margin-bottom: 0;
 }
 
 .front-page {
-  padding: 1rem 5rem 5rem;
+  padding: 1rem 2rem 2rem;
+}
+
+.front-page section {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  padding: 1rem 0 2rem;
+  width: 100%;
 }
 
 @media (max-width: 750px){
   .front-page {
-    padding: 1rem 2rem 2rem;
+    padding: 0rem 2rem 2rem;
+  }
+  footer .footer {
+    padding: 0 1rem;
   }
 }
 
 @media (max-width: 500px) {
   .front-page {
-    padding: 1rem;
+    padding: 0rem;
   }
   .construction{
     padding: .1rem;
@@ -73,15 +96,16 @@ code {
     padding: 0;
     margin: 0;
   }
+  footer .footer {
+    padding: 0;
+  }
 }
 
 /* -------------------------------------------------------------------STATEMENT CSS------------------------------------------------------------ */
 
 .top-section{
-  position: relative;
   min-height: 70vh;
-  display: grid;
-  margin-bottom: 3rem;
+  margin: 0 0 3rem;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: .2fr 1fr;
   gap: 1rem;
@@ -130,7 +154,6 @@ code {
   background-color: rgba(255, 255, 255, 0.178);
   backdrop-filter: blur(8px);
   width: 100%;
-  justify-self: center;
 }
 
 .statement h3 {

@@ -1,9 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import '../css/email.css'
+import '../css/contact.css'
 import linkedIn from '../resources/linkedIn.png'
 import gitlab from '../resources/gitlab.png'
 import discord from '../resources/discord.ico'
+import github from '../resources/github.png'
 
 export const Contact = () => {
     const form = useRef();
@@ -29,11 +30,13 @@ export const Contact = () => {
 
     return (
         <div className='contact'>
-            <div className='gray-section-bg'/>
-            <h2 className='title-span'>Interested in working together?</h2>
-            <div className='group-col'>
-                <h2>Connect!</h2>
-                <div className='group'>
+            <div className='title-span'>
+                <h2>Interested in working together?</h2>
+                <p>Professionally or recreationally, feel free to reach out!</p>
+            </div>
+            <div className='group-col socials'>
+                <h2>Connect on socials</h2>
+                <div className='group social-group'>
                     <a
                         className='social'
                         href='https://www.linkedin.com/in/charles-cowan-286764265/'
@@ -56,15 +59,22 @@ export const Contact = () => {
                         target='_blank'
                         rel='noreferrer'
                     >
-                        <img className='icon' src={discord} alt='LinkedIn icon' />
+                        <img className='icon' src={discord} alt='Discord icon' />
+                    </a>
+                    <a
+                        className='social'
+                        href='https://discord.com/channels/@Rayality'
+                        target='_blank'
+                        rel='noreferrer'
+                    >
+                        <img className='icon' style={{background:'white', borderRadius:'50%'}} src={github} alt='Github icon' />
                     </a>
 
                 </div>
             </div>
-            {/* <h2>or...</h2> */}
             <div className='group-col'>
-                <h2>Email!</h2>
-                <div id='form-wrapper'>
+                <h2>Send me an email</h2>
+
                     <form id='form' className='email-wrapper' ref={form} onSubmit={sendEmail}>
                         <div id='name'>
                             <label className=''>Name</label>
@@ -80,7 +90,7 @@ export const Contact = () => {
                         </div>
                         <button id='emailButton' type="submit" value="Send" >Submit</button>
                     </form>
-                </div>
+
             </div>
         </div>
   );

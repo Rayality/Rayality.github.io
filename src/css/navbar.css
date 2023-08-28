@@ -1,6 +1,6 @@
 /* NAVBAR */
 header {
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 100;
     font-family: 'Electrolize', sans-serif;

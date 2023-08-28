@@ -1,12 +1,8 @@
 .skills-section {
     overflow-y: clip;
-    position: relative;
-    padding: 3rem 0;
-    display: grid;
+    margin: 2rem 0;
     grid-template-rows: .5fr;
     grid-template-columns: 1fr;
-    justify-items: center;
-    width: 100%;
     gap: 1rem;
 }
 

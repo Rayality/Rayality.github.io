@@ -3,7 +3,7 @@ import Statement from '../components/Statement'
 import { useEffect } from 'react'
 import Skills from "../components/Skills"
 import head from '../resources/headshot.png'
-import { Contact } from '../components/Email'
+import { Contact } from '../components/Contact'
 
 export default function Intro() {
     useEffect(() => {
@@ -20,16 +20,17 @@ export default function Intro() {
                 </div>
                 <Statement />
             </section>
-            <section className="projects">
+            {/* <section className="projects">
 
-            </section>
+            </section> */}
             <section className="skills-section" >
                 <div className="gray-section-bg"/>
                 <p className="skills-text" style={{fontWeight:'500'}}>Tech that I use regularly for my projects</p>
                 <Skills/>
             </section>
-            <section>
+            <section className='contact-section'>
                 <Contact/>
+                <div className="gray-section-bg"/>
             </section>
         </div>
     )

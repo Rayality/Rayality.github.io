@@ -1,0 +1,32 @@
+.footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    padding: 0 3rem;
+    background: var(--blue);
+    color: var(--bgreen);
+}
+
+.footer p {
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 1rem;
+}
+
+.social {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+.footer .icon {
+    max-width: 3rem;
+}
