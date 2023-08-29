@@ -1,13 +1,14 @@
 *{
   margin: 0;
   padding: 0;
-  /* box-sizing:border-box; */
+  box-sizing:border-box;
   --mask:
       conic-gradient(from 20deg at left, #0000, #000 1deg 139deg, #0000 140deg) left/51% 1.65rem repeat-y,
       conic-gradient(from -160deg at right, #0000, #000 1deg 139deg, #0000 140deg) right/51% 1.65rem repeat-y;
   --bgreen: rgb(13, 153, 0);
   --dgreen: rgba(0,255,55,0.267);
   --gray: rgb(59 59 59);
+  --blue-accent: #4285f4;
   --blue: rgb(26 21 64);
 }
 
@@ -16,7 +17,6 @@ body {
   padding: 0;
   background: #111 center center fixed;
   width: 100%;
-  /* min-height: 100vh; */
   height: 100%;
   overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -97,7 +97,7 @@ a {
     margin: 0;
   }
   footer .footer {
-    padding: 0;
+    padding: 0 .1rem;
   }
 }
 

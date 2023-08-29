@@ -1,40 +1,41 @@
 import parch from '../resources/parchment.jpg'
 import '../css/resume.css'
-import seal from '../resources/seal.png'
+import link from '../resources/linkWhite.png'
 import pdfRes from '../resources/Resume.pdf'
 import docRes from '../resources/Resume.docx'
 import word from '../resources/word.png'
 import pdf from '../resources/pdf.png'
+import download from '../resources/downloadWhite.png'
+import web from '../resources/web.png'
 
 
 export default function Resume() {
 
     return (
         <div className='page-wrapper'>
-            {/* <div className='download'>
-                <h4>
-                    Download to read later
-                </h4>
-                <a className='left' href={pdfRes} download="Charles-Cowan-Resume" rel='noreferrer'>
-                    <button className='dl left'>
-                        <img className='dl-image' src={pdf} alt='PDF icon'/>
-                        Download
-                    </button>
+            <div className='download'>
+            <p className='support-content'>Download or view</p>
+                <a className='link' href={pdfRes} download="Charles-Cowan-Resume" rel='noreferrer'>
+                    <img className='link-icon' src={download} alt='#' />
+                    Resume.pdf
+                    <img className='link-icon' src={pdf} alt='PDF icon'/>
                 </a>
-                <a className='right' href={docRes} download="Charles-Cowan-Resume" rel='noreferrer'>
-                    <button className='dl right'>
-                        <img className='dl-image' src={word} alt='MS Word icon'/>
-                        Download
-                    </button>
+                <a className='link' href={docRes} download="Charles-Cowan-Resume" rel='noreferrer'>
+                    <img className='link-icon' src={download} alt='#' />
+                    Resume.docx
+                    <img className='link-icon' src={word} alt='MS Word icon'/>
                 </a>
-            </div> */}
-            <h4>
-            </h4>
+                <a className='link' href="https://docs.google.com/document/d/1qT5Eoqsz_WfJ-T6uWJBIrEs9vdnBpBn2xAveXxN9Z2A/edit?usp=sharing" download="Charles-Cowan-Resume" rel='noreferrer'>
+                    <img className='link-icon' src={link} alt='PDF icon'/>
+                    Docs.Google
+                    <img className='link-icon' src={web} alt='#' />
+                </a>
+            </div>
+
             <div className="page">
                 <img className='bg-image' src={parch} alt='paper' />
                 <div className='wrapper'>
                     <h1 className='me'>Charles Cowan</h1>
-                    <p>charlesraycowan@yahoo.com</p>
                     <p>linkedin.com/in/charles-cowan-286764265 | gitlab.com/CharlesRay</p>
                 </div>
                 <div className='wrapper'>
