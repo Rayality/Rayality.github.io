@@ -1,25 +1,19 @@
 
 .contact {
-    position: relative;
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    grid-template-columns: 1fr 1fr;
     justify-content: space-evenly;
     text-align: center;
     gap: 3rem;
-
 }
 
 .email-wrapper {
+    color: var(--text);
     display: grid;
     text-align: start;
     min-width: 310px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: .5fr 1fr .2fr;
-    background: #111;
+    background: var(--neutral);
     border-radius: 1rem;
-    box-shadow: 0 0 1rem 5px var(--dgreen);
     padding: 2rem;
     gap: 1rem;
 }
@@ -36,21 +30,20 @@
     padding: .5rem 1rem;
     border-radius: .7rem;
     border: none;
-    color: var(--bgreen);
-    background: var(--blue);
-    box-shadow: 0 0 1rem 5px var(--dgreen);
+    color: var(--compliment);
+    background: var(--accent);
+    box-shadow: var(--shadow) var(--accent);
 }
 
 .social{
     background-color: rgba(0,0,0,0);
     object-fit: contain;
-        /* box-shadow: 0 0 1rem 5px var(--dgreen); */
     border: none;
 }
 
 .title-span {
-    flex-basis: 100%;
-    grid-column: 1/3;
+    flex-basis: 70%;
+    word-wrap: wrap;
 }
 
 .title-span p {
@@ -58,27 +51,59 @@
 }
 
 .group-col {
-    flex-basis: 40%;
+    flex-basis: 30%;
+    flex-grow: 1;
     display: grid;
+    grid-template-columns: 1rem 1fr 1rem;
+    grid-template-rows: .1fr .2fr 1fr;
     gap: 1.5rem;
+    height: max-content;
+    max-width: 60%;
 }
 
 .socials {
-    justify-items: center;
-    height: max-content;
+    flex-grow: 0;
+    max-width: max-content;
+}
+
+.group-col h2 {
+    padding: .2rem 1rem;
+    grid-column: 2/3;
+    grid-row: 1/3;
+    display: grid;
+    background-color: var(--neutral);
+    box-shadow: var(--shadow) var(--accent);
+    border-radius: 1rem;
+}
+
+.group-col .email-wrapper,
+.group-col .group.social-group {
+    grid-column: 1/4;
+    grid-row: 2/4;
+    /* box-shadow: var(--shadow) var(--accent); */
+}
+
+.border-effect {
+    width: 100%;
+    grid-column: 1/4;
+    grid-row: 2/4;
+    border-radius: 1rem;
+    box-shadow: var(--shadow) var(--accent);
 }
 
 .group {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: .5rem;
-    /* width: max-content; */
     justify-content: center;
 }
 
 .social-group {
-    border-radius: 50%;
+    padding: 1rem;
+    grid-column: 2/3;
+    background-color: var(--neutral);
+    border-radius: 1rem;
+    /* box-shadow: var(--shadow) var(--accent); */
 }
 
 .group :nth-child(1) {

@@ -11,8 +11,8 @@
 }
 
 .support-content {
-    background-color: var(--blue-accent);
-    color: var(--blue);
+    background-color: var(--accent);
+    color: var(--accent);
     padding: .5rem 1rem;
     width: 100%;
     border-radius: 1rem;
@@ -29,7 +29,7 @@
     padding: 2rem;
     gap: 1rem;
     border-radius: 1rem;
-    background: var(--gray);
+    background: var(--compliment);
 }
 
 .link {
@@ -41,8 +41,8 @@
     padding: .5rem;
     border: none;
     border-radius: 1rem;
-    color: var(--bgreen);
-    background-color: var(--blue);
+    color: var(--text);
+    background-color: var(--accent);
 }
 
 .link-icon{

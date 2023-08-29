@@ -34,7 +34,27 @@ export const Contact = () => {
                 <h2>Interested in working together?</h2>
                 <p>Professionally or recreationally, feel free to reach out!</p>
             </div>
+            <div className='group-col'>
+                <div className='border-effect'/>
+                <h2>Send me an email</h2>
+                <form id='form' className='email-wrapper' ref={form} onSubmit={sendEmail}>
+                    <div id='name'>
+                        <label className=''>Name</label>
+                        <input className='form-control' type="text" name="user_name" />
+                    </div>
+                    <div id='email'>
+                        <label>Your Email</label>
+                        <input className='form-control' type="email" name="user_email" />
+                    </div>
+                    <div id='textfield' className=''>
+                        <label>Message</label>
+                        <textarea className='form-control' rows="3" name="message" ></textarea>
+                    </div>
+                    <button id='emailButton' type="submit" value="Send" >Submit</button>
+                </form>
+            </div>
             <div className='group-col socials'>
+                <div className='border-effect'/>
                 <h2>Connect on socials</h2>
                 <div className='group social-group'>
                     <a
@@ -69,28 +89,7 @@ export const Contact = () => {
                     >
                         <img className='icon' style={{background:'white', borderRadius:'50%'}} src={github} alt='Github icon' />
                     </a>
-
                 </div>
-            </div>
-            <div className='group-col'>
-                <h2>Send me an email</h2>
-
-                    <form id='form' className='email-wrapper' ref={form} onSubmit={sendEmail}>
-                        <div id='name'>
-                            <label className=''>Name</label>
-                            <input className='form-control' type="text" name="user_name" />
-                        </div>
-                        <div id='email'>
-                            <label>Your Email</label>
-                            <input className='form-control' type="email" name="user_email" />
-                        </div>
-                        <div id='textfield' className=''>
-                            <label>Message</label>
-                            <textarea className='form-control' rows="3" name="message" ></textarea>
-                        </div>
-                        <button id='emailButton' type="submit" value="Send" >Submit</button>
-                    </form>
-
             </div>
         </div>
   );

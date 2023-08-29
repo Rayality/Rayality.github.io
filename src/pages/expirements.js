@@ -59,7 +59,7 @@ export default function Expirements() {
             <div className='experiment-wrapper'>
                 <div className="experiment">
                     <canvas id='rain' className="d-none" />
-                    <canvas id='head' className="image-canvas d-none"/>
+                    <canvas id='head' className="head d-none"/>
                     {shown === 'head' ? loaded ?  <Headshot picture={picture.current} />: null : null}
                     {shown === 'digital' ? <Digital/>:null}
                     {shown === 'tree' ? <Tree /> : null}

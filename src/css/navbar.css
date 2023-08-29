@@ -13,14 +13,14 @@ header {
     align-content: center;
     justify-content: space-between;
     padding: .5rem clamp(.5rem, 3.5vw, 5rem);
-    background-color: rgba(27, 20, 75, 0.781);
+    background-color: var(--compliment);
     backdrop-filter: blur(15px);
 }
 
 .nav-bar * {
     display: inline;
     font-size: clamp(1.1rem, 1.5vw + .2rem, 2rem);
-    color: var(--bgreen);
+    color: var(--text);
     background-color: rgba(0, 0, 0, 0);
 }
 

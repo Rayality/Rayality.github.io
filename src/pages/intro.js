@@ -24,15 +24,15 @@ export default function Intro() {
 
             </section> */}
             <section className="skills-section" >
-                <div className="gray-section-bg"/>
+                <div className="compliment-section-bg"/>
                 <p className="skills-text" style={{fontWeight:'500'}}>Tech that I use regularly for my projects</p>
                 <Skills/>
             </section>
             <section className='contact-section'>
                 <Contact/>
-                <div className="gray-section-bg"/>
+                <div className="compliment-section-bg"/>
             </section>
         </div>
     )
 }
-// 
+//

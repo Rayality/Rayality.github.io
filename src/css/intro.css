@@ -1,33 +1,53 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing:border-box;
+  /* box-sizing:border-box; */
   --mask:
       conic-gradient(from 20deg at left, #0000, #000 1deg 139deg, #0000 140deg) left/51% 1.65rem repeat-y,
       conic-gradient(from -160deg at right, #0000, #000 1deg 139deg, #0000 140deg) right/51% 1.65rem repeat-y;
-  --bgreen: rgb(13, 153, 0);
-  --dgreen: rgba(0,255,55,0.267);
-  --gray: rgb(59 59 59);
-  --blue-accent: #4285f4;
-  --blue: rgb(26 21 64);
+  --accent: #006D89;
+  --neutral: #2F4858;
+  --compliment: #24363a;
+  --text: #08FF1F;
+  --shadow: 0px 0px 8px 0px;
+  --second-text:var(--text)
+
+  /*
+  bgreen #0AFF0A
+
+  professionalish
+    --accent: #408386;
+    --neutral: #98B6CE;
+    --compliment: #324B50;
+    --text: #f4ecff;
+    --second-text: #324B50;
+
+  plainish
+    --accent: #00C89A;
+    --neutral: #f2ecff;
+    --compliment: #1A1840;
+    --text: #f4ecff;
+    --second-text: #1A1840;
+   */
+}
+
+main {
+  margin: 2rem;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background: #111 center center fixed;
+  background: var(--neutral) center center fixed;
   width: 100%;
+
   height: 100%;
   overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#root {
-  min-height: 100vh;
+  -moz-osx-font-smoothing: complimentscale;
 }
 
 code {
@@ -48,16 +68,16 @@ a {
   text-decoration: none;
 }
 
-.gray-section-bg {
+.compliment-section-bg {
   position: absolute;
   z-index: -1;
   width: 100vw;
   height: 100%;
-  background-color: var(--gray);
+  background-color: var(--compliment);
 }
 
 .outlet {
-  color: var(--bgreen);
+  color: var(--text);
 }
 
 .front-page {
@@ -97,7 +117,7 @@ a {
     margin: 0;
   }
   footer .footer {
-    padding: 0 .1rem;
+    padding: 0;
   }
 }
 
@@ -116,7 +136,7 @@ a {
 }
 
 .construction {
-  color: var(--bgreen);
+  color: var(--text);
   display: flex;
   grid-area: 1 / 1 / 1 / 3;
   font-size: clamp(.8rem, 1vw + .2rem, 2rem);
@@ -125,8 +145,8 @@ a {
   margin-top: 1rem;
   padding: 1rem .5rem;
   border-radius: 1rem;
-  box-shadow: 0px 0px 15px 1px rgba(255, 255, 255, 0.849);
-  background-color: var(--gray);
+  box-shadow: var(--shadow) var(--accent);
+  background-color: var(--compliment);
   backdrop-filter: blur(8px);
 }
 @media (max-width:500px){
@@ -146,12 +166,12 @@ a {
 
 .statement {
   display: grid;
-  color: var(--bgreen);
+  color: var(--text);
   text-align: start;
   padding: 1rem;
   border-radius: 1rem;
-  box-shadow: 0px 0px 15px 2px rgba(0, 255, 55, 0.603);
-  background-color: rgba(255, 255, 255, 0.178);
+  box-shadow: var(--shadow) var(--accent);
+  background-color: var(--compliment);
   backdrop-filter: blur(8px);
   width: 100%;
 }
@@ -162,26 +182,20 @@ a {
   padding: 0;
 }
 
-.statement-ph {
-  position: relative;
-  color: rgba(0,0,0,0);
-  top: 0rem;
-}
-
 .text-load {
-  color: var(--bgreen);
+  color: var(--text);
   display: inline;
-  background-color: rgba(0, 255, 55, 0.267);
+  background-color: var(--accent);
 }
 
 .pic-container {
   position: relative;
-  margin: 1rem;
+  margin: 1.8rem 0 0;
 }
 
 .profilepic {
   margin: auto;
-  border-radius: 2rem;
+  border-radius: 30%;
   width: clamp(121px, 20vw + 1rem, 25rem);
   max-width: 25rem;
   min-width: 121px;
@@ -190,19 +204,8 @@ a {
 .profilepic-overlay {
   position: absolute;
   z-index: 3;
-  inset: -.5%;
-  height: 101%;
-  width: 101%;
-  border-radius: 1.5rem;
-  background: radial-gradient(circle, #33333300 50%, #111 75%);
-}
-
-/* IMAGE CSS */
-
-.image-canvas {
-  display: flex;
-  position: relative;
-  width: max(30%, 400px);
-  /* height: 100%; */
-  box-shadow: 0px 0px 15px 2px rgba(0, 255, 55, 0.603);
+  top: -7%;
+  height: 107%;
+  width: 110%;
+  background: radial-gradient(circle, #33333300 50%, var(--neutral) 75%);
 }
