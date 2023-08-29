@@ -36,7 +36,7 @@ export const Contact = () => {
             </div>
             <div className='group-col'>
                 <div className='border-effect'/>
-                <h2>Send me an email</h2>
+                <h2>Email</h2>
                 <form id='form' className='email-wrapper' ref={form} onSubmit={sendEmail}>
                     <div id='name'>
                         <label className=''>Name</label>
@@ -55,7 +55,7 @@ export const Contact = () => {
             </div>
             <div className='group-col socials'>
                 <div className='border-effect'/>
-                <h2>Connect on socials</h2>
+                <h2>Connect</h2>
                 <div className='group social-group'>
                     <a
                         className='social'
