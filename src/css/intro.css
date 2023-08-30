@@ -185,7 +185,7 @@ a {
 .text-load {
   color: var(--text);
   display: inline;
-  background-color: var(--accent);
+  background-color: #08ff2196;
 }
 
 .pic-container {
