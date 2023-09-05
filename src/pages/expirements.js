@@ -2,10 +2,11 @@ import Tree from '../components/Tree'
 import Digital from '../components/Digital'
 import { useEffect, useState, useRef } from 'react'
 import '../css/experiment.css'
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { setCanvasState } from "../Redux/canvasSlice"
 import head from '../resources/headshot.png'
 import Headshot from "../components/Headshot"
+import BatGame from '../components/BatGame'
 
 export default function Expirements() {
     let picture = useRef();
@@ -44,6 +45,11 @@ export default function Expirements() {
                 head.classList.remove('d-none')
                 setShown('head')
                 break;
+            case 'batgame':
+                rain.classList.add('d-none')
+                head.classList.add('d-none')
+                setShown('batgame')
+                break;
             default:
                 break;
         }
@@ -51,10 +57,17 @@ export default function Expirements() {
 
     return (
         <div>
-            <div className='buttons'>
-                <button className='exp-button' onClick={handleExpirement} name='digital'>Digital Rain</button>
-                <button className='exp-button' onClick={handleExpirement} name='tree'>Fractal Tree</button>
-                <button className='exp-button' onClick={handleExpirement} name='head'>Digital Image</button>
+            <div className='button-options'>
+                <div className='buttons'>
+                    <h2>Canvas Animations</h2>
+                    <button className='exp-button' onClick={handleExpirement} name='digital'>Digital Rain</button>
+                    <button className='exp-button' onClick={handleExpirement} name='tree'>Fractal Tree</button>
+                    <button className='exp-button' onClick={handleExpirement} name='head'>Digital Image</button>
+                </div>
+                <div className='buttons'>
+                    <h2>Unity Games</h2>
+                    <button className='exp-button' onClick={handleExpirement} name='batgame'>Flap Bat</button>
+                </div>
             </div>
             <div className='experiment-wrapper'>
                 <div className="experiment">
@@ -63,6 +76,7 @@ export default function Expirements() {
                     {shown === 'head' ? loaded ?  <Headshot picture={picture.current} />: null : null}
                     {shown === 'digital' ? <Digital/>:null}
                     {shown === 'tree' ? <Tree /> : null}
+                    {shown === 'batgame' ? <BatGame/> : null}
                 </div>
             </div>
         </div>
