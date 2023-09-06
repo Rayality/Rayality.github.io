@@ -1,18 +1,21 @@
 /* --------------------------------------------------------------------------EXPERIMENT CSS----------------------------------------------------- */
 
-.button-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0;
     background: var(--compliment);
     border-radius: 1rem;
-    margin: 1rem 0;
+    justify-content: space-evenly;
 }
 
 .buttons {
+    flex: 0 1 31rem;
     display: flex;
     flex-wrap: wrap;
+    width: max-content;
     gap: 2rem;
-    margin: 1rem;
+    padding: 1rem;
     justify-content: center;
 }
 
@@ -22,14 +25,22 @@
 }
 
 .exp-button {
+    display: grid;
+    grid-template-rows: .1fr 2fr;
     color: var(--text);
     font-size: large;
     border-radius: .5rem;
-    height: max-content;
+    height: 8rem;
+    width: 8rem;
     padding: .5rem;
-    box-shadow: var(--shadow) var(--shadow);
     background-color: var(--neutral);
-    backdrop-filter: blur(8px);
+}
+
+.exp-button img {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    object-fit: cover;
 }
 
 .experiment-wrapper {

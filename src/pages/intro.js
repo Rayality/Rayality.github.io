@@ -20,9 +20,9 @@ export default function Intro() {
                 </div>
                 <Statement />
             </section>
-            {/* <section className="projects">
-
-            </section> */}
+            <section className="projects">
+                
+            </section>
             <section className="skills-section" >
                 <div className="compliment-section-bg"/>
                 <p className="skills-text" style={{fontWeight:'500'}}>Tech that I use regularly for my projects</p>

@@ -13,11 +13,11 @@ export default function Statement() {
             setTimeout(() => {
                 setCurrentText((value) => value + statement.charAt(index.current));
                 index.current += 1;
-            }, 110);
+            }, (Math.random()*160 + 85));
         } else {
             setFinished(true)
         }
-    }, [finished,index.current]);
+    }, [index.current]);
 
     return (
         <div style={{width:'100%'}}>

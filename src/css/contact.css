@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     text-align: center;
+    align-items: center;
     gap: 3rem;
 }
 
@@ -44,11 +45,6 @@
     background-color: rgba(0,0,0,0);
     object-fit: contain;
     border: none;
-}
-
-.title-span {
-    flex-basis: 70%;
-    word-wrap: wrap;
 }
 
 .title-span p {

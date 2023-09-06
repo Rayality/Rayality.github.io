@@ -14,7 +14,7 @@ export default function TextLoader(props) {
                 } else {
                     return ()=> cancelAnimationFrame(cancelid)
                 }
-            }, 50);
+            }, 30);
         }
         changes();
         return ()=> cancelAnimationFrame(cancelid)

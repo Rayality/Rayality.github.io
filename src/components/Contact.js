@@ -53,7 +53,7 @@ export const Contact = () => {
                     <button id='emailButton' type="submit" value="Send" >Submit</button>
                 </form>
             </div>
-            <div className='group-col socials'>
+            {/* <div className='group-col socials'>
                 <div className='border-effect'/>
                 <h2>Connect</h2>
                 <div className='group social-group'>
@@ -90,7 +90,7 @@ export const Contact = () => {
                         <img className='icon' style={{background:'white', borderRadius:'50%'}} src={github} alt='Github icon' />
                     </a>
                 </div>
-            </div>
+            </div> */}
         </div>
   );
 };

@@ -43,9 +43,7 @@ body {
 
   height: 100%;
   overflow-x: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: complimentscale;
 }
@@ -165,6 +163,7 @@ a {
 }
 
 .statement {
+  font-family: 'Source Code Pro', monospace;
   display: grid;
   color: var(--text);
   text-align: start;
@@ -183,6 +182,7 @@ a {
 }
 
 .text-load {
+  font-family: 'Source Code Pro', monospace;
   color: var(--text);
   display: inline;
   background-color: #08ff2196;
@@ -208,4 +208,9 @@ a {
   height: 107%;
   width: 110%;
   background: radial-gradient(circle, #33333300 50%, var(--neutral) 75%);
+}
+
+section.projects {
+  position: absolute;
+  z-index: 2;
 }

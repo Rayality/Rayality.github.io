@@ -19,7 +19,6 @@
     display: flex;
     flex-wrap: wrap;
     height: max-content;
-    width: 95%;
     justify-content: space-around;
     text-align: center;
     padding: 2rem;

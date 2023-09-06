@@ -7,6 +7,10 @@ import { setCanvasState } from "../Redux/canvasSlice"
 import head from '../resources/headshot.png'
 import Headshot from "../components/Headshot"
 import BatGame from '../components/BatGame'
+import digpic from '../resources/DigitalPicture.png'
+import gamepic from '../resources/FlapBat.png'
+import matrix from '../resources/MatrixRain.png'
+import treepic from '../resources/FractalTree.png'
 
 export default function Expirements() {
     let picture = useRef();
@@ -57,16 +61,28 @@ export default function Expirements() {
 
     return (
         <div>
-            <div className='button-options'>
+            <div className='options'>
                 <div className='buttons'>
                     <h2>Canvas Animations</h2>
-                    <button className='exp-button' onClick={handleExpirement} name='digital'>Digital Rain</button>
-                    <button className='exp-button' onClick={handleExpirement} name='tree'>Fractal Tree</button>
-                    <button className='exp-button' onClick={handleExpirement} name='head'>Digital Image</button>
+                    <button className='exp-button' onClick={handleExpirement} name='digital'>
+                        Digital Rain
+                        <img src={matrix} alt='#'/>
+                    </button>
+                    <button className='exp-button' onClick={handleExpirement} name='tree'>
+                        Fractal Tree
+                        <img src={treepic} alt='#'/>
+                    </button>
+                    <button className='exp-button' onClick={handleExpirement} name='head'>
+                        Digital Image
+                        <img src={digpic} alt='#'/>
+                    </button>
                 </div>
                 <div className='buttons'>
                     <h2>Unity Games</h2>
-                    <button className='exp-button' onClick={handleExpirement} name='batgame'>Flap Bat</button>
+                    <button className='exp-button' onClick={handleExpirement} name='batgame'>
+                        Flap Bat
+                        <img src={gamepic} alt='#'/>
+                    </button>
                 </div>
             </div>
             <div className='experiment-wrapper'>
