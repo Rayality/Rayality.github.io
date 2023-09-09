@@ -1,16 +1,14 @@
 
-import optionvid from '../resources/mfOptions.mkv'
-
+import MatchFynder from '../resources/MatchFynderVid.mkv'
 import Project from './ProjectBuilder'
 import '../css/projects.css'
 
 export default function Projects() {
-
     return (
         <div className='projects-wrapper'>
             <h2 style={{textAlign:'center'}}>Projects</h2>
             <Project
-                videos={[optionvid]}
+                videos={[MatchFynder]}
                 title="MatchFynder"
                 description="
                     Match Fynder facilitates easy, fun decision-making for busy groups of people.
