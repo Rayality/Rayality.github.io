@@ -15,7 +15,7 @@
     height: 8rem;
     min-width: 3rem;
     border-radius: 2rem;
-    background: var(--accent);
+    background: var(--neutral);
     padding: .5rem .5rem 0;
     /* margin: .5rem 0; */
     box-shadow: var(--shadow) var(--accent);
@@ -38,7 +38,7 @@
     z-index: 3;
     width: 100%;
     height: 10rem;
-    background: linear-gradient(0.25turn,var(--compliment) 5%, #ffffff00 30%,#ffffff00 60%, var(--compliment) 95%);
+    background: linear-gradient(0.25turn,#111 5%, #ffffff00 30%,#ffffff00 60%, #111 95%);
 }
 .slider-container {
     display: flex;
@@ -108,7 +108,7 @@
     }
 
     .slider-overlay{
-        background: linear-gradient(0.25turn, var(--compliment) 0%, #ffffff00 25%, #ffffff00 75%, var(--compliment) 100%);
+        background: linear-gradient(0.25turn, #111 0%, #ffffff00 25%, #ffffff00 75%, #111 100%);
     }
 
     .skill-img {

@@ -1,49 +1,33 @@
+html {
+  width: 100vw;
+}
+
 *{
   margin: 0;
   padding: 0;
-  /* box-sizing:border-box; */
   --mask:
       conic-gradient(from 20deg at left, #0000, #000 1deg 139deg, #0000 140deg) left/51% 1.65rem repeat-y,
       conic-gradient(from -160deg at right, #0000, #000 1deg 139deg, #0000 140deg) right/51% 1.65rem repeat-y;
   --accent: #006D89;
   --neutral: #2F4858;
   --compliment: #24363a;
-  --text: #08FF1F;
+  --text: #dadff7;
   --shadow: 0px 0px 8px 0px;
   --second-text:var(--text)
-
-  /*
-  bgreen #0AFF0A
-
-  professionalish
-    --accent: #408386;
-    --neutral: #98B6CE;
-    --compliment: #324B50;
-    --text: #f4ecff;
-    --second-text: #324B50;
-
-  plainish
-    --accent: #00C89A;
-    --neutral: #f2ecff;
-    --compliment: #1A1840;
-    --text: #f4ecff;
-    --second-text: #1A1840;
-   */
 }
 
 main {
   margin: 2rem;
 }
 
+
 body {
   margin: 0;
   padding: 0;
-  background: var(--neutral) center center fixed;
+  background: #111 center center fixed;
   width: 100%;
-
   height: 100%;
   overflow-x: hidden;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: complimentscale;
 }
@@ -61,17 +45,14 @@ footer {
   top: 100%;
 }
 
+p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
 
 a {
   text-decoration: none;
-}
-
-.compliment-section-bg {
-  position: absolute;
-  z-index: -1;
-  width: 100vw;
-  height: 100%;
-  background-color: var(--compliment);
 }
 
 .outlet {
@@ -87,7 +68,6 @@ a {
   display: grid;
   justify-items: center;
   padding: 1rem 0 2rem;
-  width: 100%;
 }
 
 @media (max-width: 750px){
@@ -115,7 +95,7 @@ a {
     margin: 0;
   }
   footer .footer {
-    padding: 0;
+    padding: 0 1rem;
   }
 }
 
@@ -183,9 +163,9 @@ a {
 
 .text-load {
   font-family: 'Source Code Pro', monospace;
-  color: var(--text);
+  color: #111;
   display: inline;
-  background-color: #08ff2196;
+  background-color: #00ff2296;
 }
 
 .pic-container {
@@ -199,6 +179,7 @@ a {
   width: clamp(121px, 20vw + 1rem, 25rem);
   max-width: 25rem;
   min-width: 121px;
+  opacity: .8;
 }
 
 .profilepic-overlay {
@@ -207,10 +188,5 @@ a {
   top: -7%;
   height: 107%;
   width: 110%;
-  background: radial-gradient(circle, #33333300 50%, var(--neutral) 75%);
-}
-
-section.projects {
-  position: absolute;
-  z-index: 2;
+  background: radial-gradient(circle, #33333300 50%, #111 75%);
 }

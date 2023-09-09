@@ -49,9 +49,9 @@ export default function Digital() {
         const fps = 10;
         const nextFrame = 1000/fps
         let timer = 0;
-
         ctx.fillStyle = "rgb(0, 0, 0)"
         ctx.fillRect(0, 0, canvas.width, canvas.height)
+
         function animate(timeStamp) {
             const delta = timeStamp - lastTime;
             lastTime = timeStamp;

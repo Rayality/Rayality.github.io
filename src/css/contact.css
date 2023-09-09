@@ -3,16 +3,25 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    text-align: center;
     align-items: center;
-    gap: 3rem;
+    gap: 5rem;
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-text p {
+    max-width: 28ch;
 }
 
 .email-wrapper {
     color: var(--text);
     display: grid;
     text-align: start;
-    background: var(--neutral);
+    background: var(--compliment);
     border-radius: 1rem;
     padding: 2rem;
     gap: 1rem;
@@ -35,6 +44,7 @@
     width: max-content;
     padding: .5rem 1rem;
     border-radius: .7rem;
+    font-weight: 600;
     border: none;
     color: var(--compliment);
     background: var(--accent);
@@ -45,10 +55,6 @@
     background-color: rgba(0,0,0,0);
     object-fit: contain;
     border: none;
-}
-
-.title-span p {
-    font-size: 1.3rem;
 }
 
 .group-col {
@@ -73,7 +79,7 @@
     justify-self: center;
     grid-row: 1/3;
     display: grid;
-    background-color: var(--neutral);
+    background-color: var(--compliment);
     box-shadow: var(--shadow) var(--accent);
     border-radius: 1rem;
 }
@@ -128,4 +134,17 @@
 
 .icon {
     max-width:4rem;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.social {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
 }

@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import Skills from "../components/Skills"
 import head from '../resources/headshot.png'
 import { Contact } from '../components/Contact'
+import Projects from '../components/Projects'
 
 export default function Intro() {
     useEffect(() => {
@@ -21,7 +22,7 @@ export default function Intro() {
                 <Statement />
             </section>
             <section className="projects">
-                
+                <Projects />
             </section>
             <section className="skills-section" >
                 <div className="compliment-section-bg"/>

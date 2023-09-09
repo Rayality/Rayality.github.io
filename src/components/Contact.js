@@ -30,9 +30,43 @@ export const Contact = () => {
 
     return (
         <div className='contact'>
-            <div className='title-span'>
+            <div className='contact-text'>
                 <h2>Interested in working together?</h2>
-                <p>Professionally or recreationally, feel free to reach out!</p>
+                <p>Professionally or recreationally, feel free to fill out the email form or connect on socials.</p>
+                            <div className='links'>
+                <a
+                    className='social'
+                    href='https://www.linkedin.com/in/charles-cowan-286764265/'
+                    target='_blank'
+                    rel='noreferrer'
+                >
+                    <img className='icon' src={linkedIn} alt='LinkedIn icon' />
+                </a>
+                <a
+                    className='social'
+                    href='https://gitlab.com/CharlesRay'
+                    target='_blank'
+                    rel='noreferrer'
+                >
+                    <img className='icon' src={gitlab} alt='LinkedIn icon' />
+                </a>
+                <a
+                    className='social'
+                    href='https://discord.com/channels/@Rayality'
+                    target='_blank'
+                    rel='noreferrer'
+                >
+                    <img className='icon' src={discord} alt='Discord icon' />
+                </a>
+                <a
+                    className='social'
+                    href='https://github.com/Rayality'
+                    target='_blank'
+                    rel='noreferrer'
+                >
+                    <img className='icon' style={{background:'white', borderRadius:'50%'}} src={github} alt='Github icon' />
+                </a>
+            </div>
             </div>
             <div className='group-col'>
                 <div className='border-effect'/>
@@ -53,44 +87,6 @@ export const Contact = () => {
                     <button id='emailButton' type="submit" value="Send" >Submit</button>
                 </form>
             </div>
-            {/* <div className='group-col socials'>
-                <div className='border-effect'/>
-                <h2>Connect</h2>
-                <div className='group social-group'>
-                    <a
-                        className='social'
-                        href='https://www.linkedin.com/in/charles-cowan-286764265/'
-                        target='_blank'
-                        rel='noreferrer'
-                    >
-                        <img className='icon' src={linkedIn} alt='LinkedIn icon' />
-                    </a>
-                    <a
-                        className='social'
-                        href='https://gitlab.com/CharlesRay'
-                        target='_blank'
-                        rel='noreferrer'
-                    >
-                        <img className='icon' src={gitlab} alt='LinkedIn icon' />
-                    </a>
-                    <a
-                        className='social'
-                        href='https://discord.com/channels/@Rayality'
-                        target='_blank'
-                        rel='noreferrer'
-                    >
-                        <img className='icon' src={discord} alt='Discord icon' />
-                    </a>
-                    <a
-                        className='social'
-                        href='https://discord.com/channels/@Rayality'
-                        target='_blank'
-                        rel='noreferrer'
-                    >
-                        <img className='icon' style={{background:'white', borderRadius:'50%'}} src={github} alt='Github icon' />
-                    </a>
-                </div>
-            </div> */}
         </div>
   );
 };
