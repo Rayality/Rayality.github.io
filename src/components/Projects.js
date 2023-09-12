@@ -15,7 +15,15 @@ export default function Projects() {
                     A group of your friends/family match with a nearby restaurant via a Tinder-like interface.
                     When all participants agree on a place everyone is notified and shown details about the match.
                 "
-                skills={["React", "PostgreSQL", "Redux", "FastAPI", "GoogleAPI"]}
+                skills={[
+                    "React",
+                    "Javascript",
+                    "PostgreSQL",
+                    "Redux",
+                    "Python",
+                    "FastAPI",
+                    "CSS"
+                ]}
             />
         </div>
     )

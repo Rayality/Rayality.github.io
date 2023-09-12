@@ -15,7 +15,9 @@ export default function Statement() {
                 index.current += 1;
             }, (Math.random()*160 + 85));
         } else {
-            setFinished(true)
+            setTimeout(() => {
+                setFinished(true)
+            }, 50)
         }
     }, [index.current]);
 

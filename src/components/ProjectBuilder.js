@@ -28,7 +28,12 @@ export default function Project(props) {
             <div className="video-container">
                 {props.videos.map((video,index) => {
                     return (
-                        <video key={index} className='project-video' src={video} autoPlay={true} loop={true} />
+                        <video key={index} className='project-video' autoPlay={true} loop={true} muted={true} playsInline={true}>
+                            <source
+                                src={video}
+                                type='video/mp4'
+                            />
+                        </video>
                     )
                 })}
             </div>
