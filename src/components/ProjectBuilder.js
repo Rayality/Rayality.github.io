@@ -1,6 +1,18 @@
 import github from '../resources/github.png'
+import live from '../resources/play.gif'
 
 export default function Project(props) {
+    let icon;
+    switch (props.icon) {
+        case 'git':
+            icon = github;
+            break;
+        case 'live':
+            icon = live;
+            break;
+        default:
+            break;
+    }
 
     return (
         <div className="project-container">
@@ -17,11 +29,11 @@ export default function Project(props) {
                     </ul>
                     <a
                         style={{display:'inline'}}
-                        href="https://github.com/Rayality/MatchFynder/"
+                        href={props.link}
                         rel='noreferrer'
                         target='_blank'
                     >
-                        <img className='project-icon' src={github} alt='github' />
+                        <img className='project-icon' src={icon} alt={props.icon} />
                     </a>
 
             </div>

@@ -1,5 +1,6 @@
 
 import MatchFynder from '../resources/MatchFynderVid.mkv'
+import FlapBat from '../resources/flapbat.mkv'
 import Project from './ProjectBuilder'
 import '../css/projects.css'
 
@@ -24,6 +25,25 @@ export default function Projects() {
                     "FastAPI",
                     "CSS"
                 ]}
+                link="https://github.com/Rayality/MatchFynder/"
+                icon="git"
+            />
+            <Project
+                videos={[FlapBat]}
+                title="Flap Bat"
+                description="
+                My first game built with Unity.
+                 It has a 'flappy bird' style of gameplay with increasing difficulty.
+                 Features collisions/hitboxes, high score tracking, multiple scenes and object management.
+                 All scripts are C#.
+                "
+                skills={[
+                    "Unity",
+                    "C#",
+                    "Game Development"
+                ]}
+                link={window.location + "experiments"}
+                icon="live"
             />
         </div>
     )
