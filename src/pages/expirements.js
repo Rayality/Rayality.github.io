@@ -116,7 +116,8 @@ export default function Expirements() {
                             <canvas id='head' className="head d-none"/>
                             {shown === 'Digital Image' ? loaded ?  <Headshot picture={picture.current} />: null : null}
                             {shown === 'Matrix Effect' ? <Digital/> : null}
-                            {shown === 'Fractal Tree' ? <Tree /> : null}
+                        {shown === 'Fractal Tree' ? <Tree /> : null}
+                        {shown === 'Flap Bat' ? <BatGame /> : null}
                         </div>
                     </div>
             </div>
