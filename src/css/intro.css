@@ -137,9 +137,10 @@ a {
   }
   .top-section {
     grid-template-columns: 1fr;
-    grid-template-rows: .2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     min-height: 50vh;
     gap: 0;
+    margin: 1rem;
   }
 }
 
