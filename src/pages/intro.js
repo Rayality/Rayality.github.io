@@ -14,7 +14,6 @@ export default function Intro() {
     return (
         <div className="front-page">
             <section className="top-section">
-                <h4 className="construction">Currently in Development. Some features may not be optimized for your device.</h4>
                 <div className="pic-container">
                     <div className="profilepic-overlay"/>
                     <img className="profilepic" src={head} alt="profile pic"/>
@@ -22,16 +21,16 @@ export default function Intro() {
                 <Statement />
             </section>
             <section className="projects">
+                <div className="projects-bg" />
                 <Projects />
             </section>
             <section className="skills-section" >
-                <div className="compliment-section-bg"/>
-                <p className="skills-text" style={{fontWeight:'500'}}>Tech that I use regularly for my projects</p>
+                <h2 className="skills-text" style={{fontWeight:'500'}}>Tech that I use regularly for my projects</h2>
                 <Skills/>
             </section>
             <section className='contact-section'>
                 <Contact/>
-                <div className="compliment-section-bg"/>
+                <div className="contact-bg"/>
             </section>
         </div>
     )

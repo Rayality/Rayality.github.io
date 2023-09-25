@@ -16,13 +16,14 @@ import Experiment from '../components/ExperimentContent'
 export default function Expirements() {
     let picture = useRef();
     const [loaded, setLoaded] = useState(false)
-    const [shown, setShown] = useState('digital')
+    const [shown, setShown] = useState('Flap Bat')
     const dispatch = useDispatch();
 
     useEffect(() => {
-        picture.current = new Image()
+        picture.current = new Image();
         picture.current.src = head;
-        picture.current.addEventListener('load', handleLoaded)
+        picture.current.addEventListener('load', handleLoaded);
+        setShown('')
     }, [])
 
     function handleLoaded() {
@@ -36,29 +37,32 @@ export default function Expirements() {
         let head = document.getElementById('head')
         switch (e.target.name) {
             case 'Matrix Effect':
-                rain.classList.remove('d-none')
-                head.classList.add('d-none')
+                rain.classList.remove('d-none');
+                head.classList.add('d-none');
                 setShown('Matrix Effect');
+
                 break;
             case 'Fractal Tree':
-                rain.classList.add('d-none')
-                head.classList.add('d-none')
+                rain.classList.add('d-none');
+                head.classList.add('d-none');
                 setShown('Fractal Tree');
                 break;
             case 'Digital Image':
-                rain.classList.add('d-none')
-                head.classList.remove('d-none')
-                setShown('Digital Image')
+                rain.classList.add('d-none');
+                head.classList.remove('d-none');
+                setShown('Digital Image');
                 break;
             case 'Flap Bat':
-                rain.classList.add('d-none')
-                head.classList.add('d-none')
-                setShown('Flap Bat')
+                rain.classList.add('d-none');
+                head.classList.add('d-none');
+                setShown('Flap Bat');
                 break;
             default:
                 break;
         }
     }
+
+
 
     return (
         <div>
@@ -110,16 +114,16 @@ export default function Expirements() {
                         />
                     </div>
                 </div>
-                    <div className='experiment-display'>
-                        <div className="experiment">
-                            <canvas id='rain' className="d-none" />
-                            <canvas id='head' className="head d-none"/>
-                            {shown === 'Digital Image' ? loaded ?  <Headshot picture={picture.current} />: null : null}
-                            {shown === 'Matrix Effect' ? <Digital/> : null}
+                <div className='experiment-display'>
+                    <div className="experiment">
+                        <canvas id='rain' className="d-none" />
+                        <canvas id='head' className="head d-none"/>
+                        {shown === 'Digital Image' ? loaded ?  <Headshot picture={picture.current} />: null : null}
+                        {shown === 'Matrix Effect' ? <Digital/> : null}
                         {shown === 'Fractal Tree' ? <Tree /> : null}
-                        {shown === 'Flap Bat' ? <BatGame /> : null}
-                        </div>
+                        <BatGame shown={shown} />
                     </div>
+                </div>
             </div>
         </div>
     )

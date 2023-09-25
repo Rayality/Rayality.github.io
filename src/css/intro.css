@@ -17,7 +17,7 @@ html {
 }
 
 main {
-  margin: 2rem;
+  /* margin: 2rem; */
 }
 
 
@@ -60,7 +60,7 @@ a {
 }
 
 .front-page {
-  padding: 1rem 2rem 2rem;
+  /* padding: 1rem 2rem 2rem; */
 }
 
 .front-page section {
@@ -105,8 +105,9 @@ a {
   min-height: 70vh;
   margin: 0 0 3rem;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: .2fr 1fr;
+  grid-template-rows: 1fr;
   gap: 1rem;
+  margin: 4rem;
   padding: 1rem;
   justify-content: space-evenly;
   align-items: center;
