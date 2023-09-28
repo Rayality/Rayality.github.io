@@ -3,11 +3,6 @@ import { useRef } from 'react';
 
 export default function Headshot(props) {
     let animID = useRef();
-    // window.addEventListener('resize', handleResize)
-    // let reload = 0
-    // function handleResize() {
-    //     reload+=1
-    // }
     useEffect(() => {
         const picture = props.picture
         const canv = document.getElementById('head');

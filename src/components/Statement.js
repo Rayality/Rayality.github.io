@@ -6,7 +6,6 @@ export default function Statement() {
     const index = useRef(0)
     const [currentText, setCurrentText] = useState('');
     const statement = "Hello! My name is Charles and I am a full-stack Software Engineer. Welcome to my portfolio."
-    const [finished,setFinished] = useState(false)
 
     useEffect(() => {
         if (index.current < statement.length) {
@@ -14,17 +13,15 @@ export default function Statement() {
                 setCurrentText((value) => value + statement.charAt(index.current));
                 index.current += 1;
             }, (Math.random()*160 + 85));
-        } else {
-            setTimeout(() => {
-                setFinished(true)
-            }, 50)
         }
-    }, [index.current]);
+    },
+        [index.current]
+    );
 
     return (
         <div style={{width:'100%'}}>
             <div className="statement">
-                <h3 >{currentText}{finished===false ? <TextLoader finished={finished} ind={index.current} /> : null} </h3>
+                <h3 >{currentText}{currentText.length !== statement.length ? <TextLoader ind={index.current} /> : null} </h3>
             </div>
         </div>
     )

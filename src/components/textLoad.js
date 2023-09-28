@@ -8,12 +8,8 @@ export default function TextLoader(props) {
         let cancelid;
         function changes() {
             setTimeout(() => {
-                if (props.finished === false) {
-                    setCurrentText(characters.charAt(Math.random()*(characters.length-1)));
-                    cancelid=requestAnimationFrame(changes)
-                } else {
-                    return ()=> cancelAnimationFrame(cancelid)
-                }
+                setCurrentText(characters.charAt(Math.random()*(characters.length-1)));
+                cancelid=requestAnimationFrame(changes)
             }, 30);
         }
         changes();
