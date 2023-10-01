@@ -12,7 +12,6 @@ export default function MyNavbar() {
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
-
     const slide = {
         hidden: {
             opacity: 0, position: 'sticky', top: 20,
@@ -27,6 +26,7 @@ export default function MyNavbar() {
             },
         }
     }
+
     const slideChild = {
         hidden: { opacity: 0, x: 100, },
         show: { opacity: 1, x: 0,
@@ -51,9 +51,19 @@ export default function MyNavbar() {
     }
 
     return (
-        <motion.div initial="hidden" animate="show" variants={slide} className="nav-bar">
-
-            <motion.p id='' variants={slideChild} effect="Charles Cowan" onMouseOver={handleHover} onMouseLeave={handleLeave} onClick={handleClicks}>
+        <motion.div
+            initial="hidden"
+            animate="show"
+            variants={slide}
+            className="nav-bar"
+        >
+            <motion.p
+                variants={slideChild}
+                effect="Charles Cowan"
+                onMouseOver={handleHover}
+                onMouseLeave={handleLeave}
+                onClick={handleClicks}
+            >
                 Charles Cowan
             </motion.p>
             <div className='nav-wrap'>
@@ -89,17 +99,13 @@ export default function MyNavbar() {
                         Experiments
                     </p>
                 </motion.button>
-                <motion.button
-                    className='btn'
-                    variants={slideChild}
-                >
+                <motion.button className='btn' variants={slideChild}>
                     <img src={resume} alt='resume' style={{'maxHeight':'2ch'}}/>
                     <p
                         effect="Resume"
                         onMouseOver={handleHover}
                         onMouseLeave={handleLeave}
                         onClick={() => navigate('resume')}
-                        className=''
                     >
                         Resume
                     </p>

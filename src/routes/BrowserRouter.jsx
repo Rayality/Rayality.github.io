@@ -3,6 +3,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
 import Expirements from "../pages/expirements";
 import Resume from "../pages/resume";
+import MatchGame from "../components/MatchGame";
+
 
 const Routes = () => {
     const publicRoutes = [
@@ -17,6 +19,10 @@ const Routes = () => {
       {
         path: "/resume",
         Component: Resume,
+      },
+      {
+        path: "/matchgame",
+        Component: MatchGame,
       },
     ];
   const router = createBrowserRouter([
