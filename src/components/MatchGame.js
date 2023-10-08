@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import '../css/matchgame.css'
 import sword from '../resources/sword.png'
@@ -10,14 +10,15 @@ import shield from '../resources/shield.png'
 export default function MatchGame() {
     const pieces = [
         {'sword': sword},
-        { 'mace': mace },
-        { 'spear': spear },
+        {'mace': mace},
+        {'spear': spear},
         {'shield': shield}
     ]
     let [columns, setColumns] = useState([]);
     let size = 8;
-    let tempColumns = []
-    function fillColumn() {
+    let tempColumns = useRef([]);
+
+    async function fillColumn() {
         for (let i = 0; i < size; i++){
             const column = [];
             for (let i = 0; i < size; i++){
@@ -25,9 +26,19 @@ export default function MatchGame() {
 
                 column.push(pieces[randomPieceIndex]);
             }
-            tempColumns.push(column)
+            tempColumns.current.push(column);
         }
-        setColumns(tempColumns)
+        setColumns(tempColumns.current);
+    }
+
+    async function refill() {
+        for (let i = 0; i < size; i++){
+            if (tempColumns.current[i].length < size) {
+                let randomPieceIndex = Math.floor(Math.random() * pieces.length);
+                tempColumns.current[i].unshift(pieces[randomPieceIndex]);
+                i--;
+            }
+        }
     }
 
     const [dragConstraints, setDragConstraints] = useState({});
@@ -48,17 +59,81 @@ export default function MatchGame() {
         }
     }
 
-    function handleMatch() {
-        for (let i = 0; i < size; i++) {
-            for (let i = 0; i < size; i++) {
-                
+    async function handleMatch() {
+        for (let i = 0; i < size - 2; i++){
+            await checkColumn(i);
+            await refill();
+            // if (columnReturn===null) {
+            await checkRow(i, Object.getOwnPropertyNames(tempColumns.current[i][i])[0])
+            // } else {
+                // checkRow(i, columnReturn);
+            // }
+            await refill();
+        }
+        setColumns(tempColumns.current)
+
+    }
+
+    async function checkColumn(columnIndex) {
+        for (let i = 0; i < size - 2; i++){
+            console.log(tempColumns.current)
+            const currentPiece = Object.getOwnPropertyNames(tempColumns.current[columnIndex][i])[0];
+            const nextPiece = Object.getOwnPropertyNames(tempColumns.current[columnIndex][i + 1])[0];
+            if (currentPiece === nextPiece) {
+                const thirdPiece = Object.getOwnPropertyNames(tempColumns.current[columnIndex][i + 2])[0];
+                if (currentPiece === thirdPiece) {
+                    if (i < size-3 && currentPiece === Object.getOwnPropertyNames(tempColumns.current[columnIndex][i + 3])[0]) {
+                        if (i < size - 4 && currentPiece === Object.getOwnPropertyNames(tempColumns.current[columnIndex][i + 4])[0]) {
+                            tempColumns.current[columnIndex].splice(i, 5);
+                            break;
+                            // return currentPiece;
+                        }
+                        tempColumns.current[columnIndex].splice(i, 4);
+                        break;
+                        // return currentPiece;
+                    }
+                    tempColumns.current[columnIndex].splice(i, 3);
+                    break;
+                    // return currentPiece;
+                }
+            }
+        }
+    }
+
+    async function checkRow(rowIndex, pieceName) {
+        let currentPiece
+        for (let i = 0; i < size - 2; i++){
+            if (i === 0) {
+                currentPiece = pieceName
+            } else {
+                currentPiece = Object.getOwnPropertyNames(tempColumns.current[i][rowIndex])[0]
+            }
+            const nextPiece = Object.getOwnPropertyNames(tempColumns.current[i+1][rowIndex])[0];
+            if (currentPiece === nextPiece) {
+                const thirdPiece = Object.getOwnPropertyNames(tempColumns.current[i+2][rowIndex])[0];
+                if (currentPiece === thirdPiece) {
+                    if (i < size-3 && currentPiece === Object.getOwnPropertyNames(tempColumns.current[i+3][rowIndex])[0]) {
+                        if (i < size - 4 && currentPiece === Object.getOwnPropertyNames(tempColumns.current[i+4][rowIndex])[0]) {
+                            tempColumns.current[i].splice(i, 5);
+                            return;
+                        }
+                        tempColumns.current[i].splice(i, 4);
+                        return;
+                    }
+                    tempColumns.current[i].splice(i, 3);
+                    return;
+                }
             }
         }
     }
 
     useEffect(() => {
-        fillColumn();
-        getPiece();
+        const load = async () => {
+            await fillColumn();
+            getPiece();
+            handleMatch();
+        }
+        load();
     },[])
 
 
@@ -71,11 +146,12 @@ export default function MatchGame() {
     }
 
     function dragDrop(e, info) {
-
+        console.log('drop: ', e, info)
     }
 
     function dragEnd(e, info) {
         console.log(info,e)
+        handleMatch();
     }
 
     return (
@@ -114,7 +190,7 @@ export default function MatchGame() {
                                         'backgroundPosition':'center'
                                     }}
                                 >
-                                    {/* <img className='piece-image' src={value} alt={key} /> */}
+
                                 </motion.div>
                             )
                             })}
