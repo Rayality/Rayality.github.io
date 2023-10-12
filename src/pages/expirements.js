@@ -16,15 +16,16 @@ import Experiment from '../components/ExperimentContent'
 export default function Expirements() {
     let picture = useRef();
     const [loaded, setLoaded] = useState(false)
-    const [shown, setShown] = useState('Flap Bat')
+    const [shown, setShown] = useState('')
     const dispatch = useDispatch();
+    const [requestUnloadUnity, setRequestUnloadUnity] = useState(true)
+    const unloadUnityReplacement = useRef()
 
     useEffect(() => {
         picture.current = new Image();
         picture.current.src = head;
         picture.current.addEventListener('load', handleLoaded);
-        setShown('')
-    }, [])
+    }, [shown, unloadUnityReplacement.current, setShown])
 
     function handleLoaded() {
         setLoaded(true)
@@ -32,37 +33,55 @@ export default function Expirements() {
     }
 
 
-    function handleExpirement(e) {
+    async function handleExpirement(e) {
+        console.log(e)
+        const name = e.target.name
+        unloadUnityReplacement.current = name
+        if (name !== 'Flap Bat') {
+            setRequestUnloadUnity(true)
+        }
+        let check = await handleUnload()
+        if (check === true){
         let rain = document.getElementById('rain')
         let head = document.getElementById('head')
-        switch (e.target.name) {
+        switch (name) {
             case 'Matrix Effect':
-                rain.classList.remove('d-none');
-                head.classList.add('d-none');
-                setShown('Matrix Effect');
-
+                    rain.classList.remove('d-none');
+                    head.classList.add('d-none');
+                    setShown(name);
                 break;
+
             case 'Fractal Tree':
                 rain.classList.add('d-none');
                 head.classList.add('d-none');
-                setShown('Fractal Tree');
+                setShown(name);
                 break;
+
             case 'Digital Image':
                 rain.classList.add('d-none');
                 head.classList.remove('d-none');
-                setShown('Digital Image');
+                setShown(name);
                 break;
+
             case 'Flap Bat':
+                setRequestUnloadUnity(false)
                 rain.classList.add('d-none');
                 head.classList.add('d-none');
                 setShown('Flap Bat');
                 break;
+
             default:
                 break;
+            }
+        } else {
+            setTimeout(() => handleExpirement(e), 2000)
         }
+
     }
 
-
+    async function handleUnload() {
+        return true
+    }
 
     return (
         <div>
@@ -121,7 +140,11 @@ export default function Expirements() {
                         {shown === 'Digital Image' ? loaded ?  <Headshot picture={picture.current} />: null : null}
                         {shown === 'Matrix Effect' ? <Digital/> : null}
                         {shown === 'Fractal Tree' ? <Tree /> : null}
-                        <BatGame shown={shown} />
+                        {shown === 'Flap Bat' ?
+                            <BatGame shown={shown} setShown={setShown} requestUnload={requestUnloadUnity} unloadedReplacement={unloadUnityReplacement.current} />
+                            :
+                            null
+                        }
                     </div>
                 </div>
             </div>
