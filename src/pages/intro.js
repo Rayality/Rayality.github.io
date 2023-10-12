@@ -38,7 +38,9 @@ export default function Intro() {
                         <div className="profilepic-overlay"/>
                         <img className="profilepic" src={head} alt="profile pic"/>
                     </div>
-                    <Statement />
+                    <div className='statement'>
+                        <Statement text="Welcome! My name is Charles. Be sure to check out the 'Experiments' page for games and small creations/animations."/>
+                    </div>
                 </section>
                 <section className="projects">
                     <div className="projects-bg" />
@@ -58,4 +60,3 @@ export default function Intro() {
         </div>
     )
 }
-//

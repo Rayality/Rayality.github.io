@@ -12,29 +12,33 @@ export default function IntroAnimation(props) {
         },
         show: {
             opacity: 0,
-            scale: 150,
+            scale: 350,
             transition: {
                 duration: 5,
-                delay: 9,
-                ease:'easeIn'
+                delay: 9.1,
+                ease: 'easeIn'
             },
-            transitionEnd:{display:'none'}
+            transitionEnd: { display: 'none' }
         }
-    }
+    };
     useEffect(() => {
         const load = () => {
             const content = [animationText.charAt(index.current)]
             index.current++;
-            const obj = content.map(char => Characters({ 'text': char, 'index': index.current }))
-            setDisplay([...display, obj])
+            const obj = content.map(char => {
+                return (
+                    Characters({ 'text': char, 'index': index.current })
+                )
+            });
+            setDisplay([...display, obj]);
         }
         if (index.current <= animationText.length) {
-            setTimeout(load,1120)
+            setTimeout(load, 1150);
         } else {
             setTimeout(() => {
-                props.setFinished(true)
-            }, 6120)
-        }
+                props.setFinished(true);
+            }, 5120);
+        };
     }, [index.current])
 
     return (
@@ -52,9 +56,7 @@ export default function IntroAnimation(props) {
 
 function Characters(props) {
     const typingBlock = {
-        hidden: {
-            opacity: 0,
-        },
+        hidden: { opacity: 0 },
         show: {
             opacity: 1,
             transition: {
@@ -68,9 +70,7 @@ function Characters(props) {
     }
 
     const typingLetter = {
-        hidden: {
-            opacity: 0,
-        },
+        hidden: { opacity: 0 },
         show: {
             opacity: 1,
             transition: {
@@ -101,6 +101,5 @@ function Characters(props) {
                 {props.text}
             </motion.div>
         </div>
-
     )
 }

@@ -2,17 +2,18 @@ import { useEffect, useState, useRef } from "react"
 import TextLoader from "./textLoad";
 
 
-export default function Statement() {
+export default function Statement(props) {
     const index = useRef(0)
     const [currentText, setCurrentText] = useState('');
-    const statement = `Hello, My name is Charles.
-    Welcome to my portfolio.
-    Be sure to check out the 'Experiments' page for games and small creations/animations.`
+    const statement = props.text
 
     useEffect(() => {
         if (index.current < statement.length) {
             setTimeout(() => {
-                setCurrentText((value) => value + statement.charAt(index.current));
+                setCurrentText((value) => {
+                    let char = statement.charAt(index.current)
+                    return value + char
+                });
                 index.current += 1;
             }, (Math.random()*160 + 85));
         } else {
@@ -25,13 +26,13 @@ export default function Statement() {
 
     return (
         <div style={{width:'100%'}}>
-            <div className="statement">
-                <h3 >{currentText}{
-                    currentText.length !== statement.length ?
-                    <TextLoader ind={index.current} /> : null
+            <h3 >{currentText}
+                {currentText.length !== statement.length ?
+                    <TextLoader ind={index.current} />
+                    :
+                    null
                 }
-                </h3>
-            </div>
+            </h3>
         </div>
     )
 

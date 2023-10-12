@@ -13,7 +13,7 @@ html {
   --compliment: #24363a;
   --text: #dadff7;
   --shadow: 0px 0px 8px 0px;
-  --second-text:var(--text)
+  --second-text:var(--text);
 }
 
 main {
@@ -146,9 +146,9 @@ a {
 
 .statement {
   font-family: 'Source Code Pro', monospace;
-  display: grid;
   color: var(--text);
-  text-align: start;
+  /* text-align: start; */
+  text-wrap: wrap;
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: var(--shadow) var(--accent);
@@ -158,7 +158,6 @@ a {
 }
 
 .statement h3 {
-  display: inline;
   font-size: clamp(.8rem, 1.5vw + .2rem, 2rem);
   padding: 0;
 }
