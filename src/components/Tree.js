@@ -4,7 +4,6 @@ import '../css/intro.css'
 
 function SketchBG() {
     let x = 0;
-    let y = 0;
     let angle = (x);
     let userX = 0;
     let userY = 0;
@@ -13,15 +12,13 @@ function SketchBG() {
     function setXY(event) {
         userX = event.clientX
         userY = event.clientY
-        x=((window.parent.innerWidth/2)-userX)/500
-        y=((window.parent.innerHeight-userY)*.4)
+        x = ((window.parent.innerWidth/2)-userX)/500
         angle = (.7 + (x * x) / 6)
     }
 
     const setup = (p5, canvasParentRef) => {
         p5.createCanvas(Math.max(window.innerWidth/3,400), window.innerHeight/1.8).parent(canvasParentRef)
         p5.background('rgb( 0,0,0)')
-        console.log()
     }
 
     const draw = p5 => {
@@ -72,7 +69,7 @@ function SketchBG() {
     };
 
     const windowResized = p5 => {
-        p5.resizeCanvas(Math.max(window.innerWidth/3,400), p5.windowHeight/2);
+        p5.resizeCanvas(Math.max(window.innerWidth/3, 400), p5.windowHeight/2);
     }
 
     return (
