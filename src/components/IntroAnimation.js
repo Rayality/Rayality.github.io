@@ -15,7 +15,7 @@ export default function IntroAnimation(props) {
             scale: 350,
             transition: {
                 duration: 4,
-                delay: 9.3,
+                delay: 6.3,
                 ease: 'easeIn'
             },
             transitionEnd: { display: 'none' }
@@ -33,7 +33,7 @@ export default function IntroAnimation(props) {
             setDisplay([...display, obj]);
         }
         if (index.current <= animationText.length) {
-            setTimeout(load, 1110);
+            setTimeout(load, 700);
         } else {
             setTimeout(() => {
                 props.setFinished(true);
@@ -63,7 +63,7 @@ function Characters(props) {
                 duration: 0,
                 repeat: 3,
                 repeatType: 'mirror',
-                repeatDelay: .3,
+                repeatDelay: .2,
             },
             transitionEnd: { display:'none' }
         }
@@ -74,7 +74,7 @@ function Characters(props) {
         show: {
             opacity: 1,
             transition: {
-                delay:.9,
+                delay:.6,
                 duration: 0,
             },
         }
