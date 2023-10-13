@@ -33,7 +33,7 @@ export default function IntroAnimation(props) {
             setDisplay([...display, obj]);
         }
         if (index.current <= animationText.length) {
-            setTimeout(load, 1100);
+            setTimeout(load, 1110);
         } else {
             setTimeout(() => {
                 props.setFinished(true);
