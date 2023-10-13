@@ -6,12 +6,16 @@
     justify-content: space-evenly;
     align-items: center;
     gap: 5rem;
+    margin: .5rem;
+    width: 80%;
 }
 
 .contact-text {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    text-align: center;
+    align-items: center;
 }
 
 .contact-text p {

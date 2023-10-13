@@ -21,7 +21,7 @@ export default function Intro() {
         show: {
             opacity: 1,
             transition: {
-                duration: 1
+                duration: 2
             }
         }
     }
@@ -47,7 +47,7 @@ export default function Intro() {
                     <Projects />
                 </section>
                 <section className="skills-section" >
-                    <h2 className="skills-text" style={{fontWeight:'500'}}>Tech that I use regularly for my projects</h2>
+                    <h2 className="skills-text">Tech that I use regularly for my projects</h2>
                     <Skills/>
                 </section>
                 <section className='contact-section'>
@@ -55,7 +55,7 @@ export default function Intro() {
                     <div className="contact-bg"/>
                 </section>
             </motion.div>
-                :
+            :
             <IntroAnimation setFinished={setFinishedAnimation} text="Welcome" />}
         </div>
     )

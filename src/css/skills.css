@@ -7,7 +7,9 @@
 }
 
 .skills-text {
-    font-size: clamp(1.325rem, 1.5vw + .2rem, 2.5rem)
+    font-size: clamp(1.325rem, 1.5vw + .2rem, 2.5rem);
+    padding: 1rem;
+    text-align: center;
 }
 
 /* -------------- skill containers ----------------- */

@@ -42,7 +42,7 @@ export default function IntroAnimation(props) {
     }, [index.current])
 
     return (
-        <motion.div
+        <motion.h1
             className="intro-animation"
             variants={zoom}
             initial='hidden'
@@ -50,7 +50,7 @@ export default function IntroAnimation(props) {
         >
             {display}
 
-        </motion.div>
+        </motion.h1>
     )
 }
 
