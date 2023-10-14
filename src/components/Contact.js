@@ -74,15 +74,15 @@ export const Contact = () => {
                 <form id='form' className='email-wrapper' ref={form} onSubmit={sendEmail}>
                     <div id='name'>
                         <label className=''>Name</label>
-                        <input className='form-control' type="text" name="user_name" />
+                        <input className='form-control' type="text" name="name" />
                     </div>
                     <div id='email'>
-                        <label>Your Email</label>
-                        <input className='form-control' type="email" name="user_email" />
+                        <label>Return Email</label>
+                        <input className='form-control' type="email" name="email"/>
                     </div>
                     <div id='textfield' className=''>
-                        <label>Message</label>
-                        <textarea className='form-control' rows="3" name="message" ></textarea>
+                        <label>Message/Feedback</label>
+                        <textarea className='form-control' rows="3" name="message" />
                     </div>
                     <button id='emailButton' type="submit" value="Send" >Submit</button>
                 </form>
