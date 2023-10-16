@@ -1,8 +1,11 @@
 import { motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
+import { useDispatch } from "react-redux";
+import { setIntroState } from "../Redux/introSlice";
 
 
 export default function IntroAnimation(props) {
+    const dispatch = useDispatch();
     const animationText = props.text;
     const [display, setDisplay] = useState([]);
     const index = useRef(0);
@@ -36,7 +39,7 @@ export default function IntroAnimation(props) {
             setTimeout(load, 800);
         } else {
             setTimeout(() => {
-                props.setFinished(true);
+                dispatch(setIntroState(true))
             }, 4120);
         };
     }, [index.current])

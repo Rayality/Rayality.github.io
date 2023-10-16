@@ -1,5 +1,7 @@
 import github from '../resources/github.png'
 import live from '../resources/play.gif'
+import RevealAnimation from './RevealAnimation';
+
 
 export default function Project(props) {
     let icon;
@@ -16,39 +18,38 @@ export default function Project(props) {
 
     return (
         <div className="project-container">
-            <div className="project-description">
-                <h3>{props.title}</h3>
-                <p>{props.description}</p>
+            <RevealAnimation>
+                <div className="project-description">
+                    <h3>{props.title}</h3>
+                    <p>{props.description}</p>
 
-                    <ul className="project-skills">
-                        {props.skills.map((skill,index) => {
-                            return (
-                                <li className="project-skill" key={index}>{skill}</li>
-                            )
-                        })}
-                    </ul>
-                    <a
-                        style={{display:'inline'}}
-                        href={props.link}
-                        rel='noreferrer'
-                        target='_blank'
-                    >
-                        <img className='project-icon' src={icon} alt={props.icon} />
-                    </a>
-
-            </div>
-            <div className="video-container">
-                {props.videos.map((video,index) => {
-                    return (
-                        <video key={index} className='project-video' autoPlay={true} loop={true} muted={true} playsInline={true}>
-                            <source
-                                src={video}
-                                type='video/mp4'
-                            />
-                        </video>
-                    )
-                })}
-            </div>
+                        <ul className="project-skills">
+                            {props.skills.map((skill,index) => {
+                                return (
+                                    <li className="project-skill" key={index}>{skill}</li>
+                                )
+                            })}
+                        </ul>
+                        <a
+                            style={{display:'inline'}}
+                            href={props.link}
+                            rel='noreferrer'
+                            target='_blank'
+                        >
+                            <img className='project-icon' src={icon} alt={props.icon} />
+                        </a>
+                </div>
+            </RevealAnimation>
+            <RevealAnimation>
+                <div className="video-container">
+                    <video className='project-video' autoPlay={true} loop={true} muted={true} playsInline={true}>
+                        <source
+                            src={props.video}
+                            type='video/mp4'
+                        />
+                    </video>
+                </div>
+            </RevealAnimation>
         </div>
     )
 }

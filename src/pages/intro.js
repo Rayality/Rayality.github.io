@@ -1,19 +1,25 @@
 import '../css/intro.css'
 import Statement from '../components/Statement'
-import { useEffect, useState} from 'react'
+import { useEffect, useRef, useState} from 'react'
 import Skills from "../components/Skills"
 import head from '../resources/headshot.png'
 import { Contact } from '../components/Contact'
 import Projects from '../components/Projects'
 import IntroAnimation from '../components/IntroAnimation'
 import { motion } from 'framer-motion'
+import RevealAnimation from '../components/RevealAnimation'
+import { useSelector } from 'react-redux/es/hooks/useSelector'
 
 
 export default function Intro() {
+    const completedIntro = useSelector((state) => state.introControl.introState)
+    console.log(completedIntro)
     const [finishedAnimation, setFinishedAnimation] = useState(false)
+
     useEffect(() => {
 
-    },[])
+    }, [])
+
     const fade = {
         hidden: {
             opacity:0
@@ -25,38 +31,49 @@ export default function Intro() {
             }
         }
     }
+
+
+
     return (
         <div className="front-page">
-        {finishedAnimation ?
+            {completedIntro ?
                 <motion.div
-                    variants={fade}
-                    initial='hidden'
-                    animate='show'
+                variants={fade}
+                initial='hidden'
+                animate='show'
                 >
-                <section className="top-section">
-                    <div className="pic-container">
-                        <div className="profilepic-overlay"/>
-                        <img className="profilepic" src={head} alt="profile pic"/>
-                    </div>
-                    <div className='statement'>
-                        <Statement text="Welcome! My name is Charles. Be sure to check out the 'Experiments' page for games and small creations/animations."/>
-                    </div>
-                </section>
+                    <section className="top-section">
+                        <RevealAnimation name='pic-container'>
+                                <div>
+                                    <div className="profilepic-overlay"/>
+                                    <img className="profilepic" src={head} alt="profile pic"/>
+                                </div>
+                        </RevealAnimation>
+                        <RevealAnimation name='statement'>
+
+                                    <Statement text="Welcome! My name is Charles. Be sure to check out the 'Experiments' page for games and small creations/animations."/>
+
+                        </RevealAnimation>
+                    </section>
                 <section className="projects">
+                        <Projects />
                     <div className="projects-bg" />
-                    <Projects />
                 </section>
-                <section className="skills-section" >
-                    <h2 className="skills-text">Tech that I use regularly for my projects</h2>
-                    <Skills/>
-                </section>
+                <RevealAnimation >
+                    <section className="skills-section" >
+                        <RevealAnimation>
+                            <h2 className="skills-text">Tech that I use regularly for my projects</h2>
+                        </RevealAnimation>
+                            <Skills/>
+                    </section>
+                </RevealAnimation>
                 <section className='contact-section'>
                     <Contact/>
                     <div className="contact-bg"/>
                 </section>
             </motion.div>
-            :
-            <IntroAnimation setFinished={setFinishedAnimation} text="Welcome" />}
+           :
+                <IntroAnimation text="Welcome" />}
         </div>
     )
 }

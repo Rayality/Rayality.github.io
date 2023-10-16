@@ -4,13 +4,11 @@ import house from '../resources/house.svg'
 import vial from '../resources/vial.png'
 import resume from '../resources/resume.png'
 import '../css/navbar.css'
-import { useDispatch } from 'react-redux'
-import { setCanvasState } from "../Redux/canvasSlice";
 
 
 export default function MyNavbar() {
     const navigate = useNavigate()
-    const dispatch = useDispatch();
+
 
     const slide = {
         hidden: {
@@ -46,7 +44,6 @@ export default function MyNavbar() {
     }
 
     function handleClicks(e) {
-        dispatch(setCanvasState(false))
         navigate(e.target.id)
     }
 
@@ -66,7 +63,7 @@ export default function MyNavbar() {
             >
                 Charles Cowan
             </motion.p>
-            <div className='nav-wrap'>
+            <motion.div className='nav-wrap'>
                 <motion.button
                     className='btn'
                     variants={slideChild}
@@ -110,7 +107,7 @@ export default function MyNavbar() {
                         Resume
                     </p>
                 </motion.button>
-            </div>
+            </motion.div>
         </motion.div>
     )
 }

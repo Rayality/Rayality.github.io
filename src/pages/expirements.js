@@ -2,8 +2,6 @@ import Tree from '../components/Tree'
 import Digital from '../components/Digital'
 import { useEffect, useState, useRef } from 'react'
 import '../css/experiment.css'
-import { useDispatch } from "react-redux"
-import { setCanvasState } from "../Redux/canvasSlice"
 import head from '../resources/headshot.png'
 import Headshot from "../components/Headshot"
 import BatGame from '../components/BatGame'
@@ -17,7 +15,6 @@ export default function Expirements() {
     let picture = useRef();
     const [loaded, setLoaded] = useState(false)
     const [shown, setShown] = useState('')
-    const dispatch = useDispatch();
     const [requestUnloadUnity, setRequestUnloadUnity] = useState(true)
     const unloadUnityReplacement = useRef()
 
@@ -29,7 +26,6 @@ export default function Expirements() {
 
     function handleLoaded() {
         setLoaded(true)
-        dispatch(setCanvasState(true))
     }
 
 
