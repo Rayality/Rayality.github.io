@@ -2,12 +2,13 @@ import { motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 import { useDispatch } from "react-redux";
 import { setIntroState } from "../Redux/introSlice";
-
+import TextLoader from './textLoad'
 
 export default function IntroAnimation(props) {
     const dispatch = useDispatch();
     const animationText = props.text;
     const [display, setDisplay] = useState([]);
+    const [loaded, setLoaded] = useState(false)
     const index = useRef(0);
     const zoom = {
         hidden: {
@@ -15,11 +16,13 @@ export default function IntroAnimation(props) {
         },
         show: {
             opacity: 0,
-            scale: 350,
+            scale: 1650,
+            y: -250,
             transition: {
                 duration: 4,
-                delay: 6.3,
-                ease: 'easeIn'
+                delay: 6.8,
+                ease: 'easeIn',
+                y: { duration: 2 }
             },
             transitionEnd: { display: 'none' }
         }
@@ -28,19 +31,15 @@ export default function IntroAnimation(props) {
         const load = () => {
             const content = [animationText.charAt(index.current)]
             index.current++;
-            const obj = content.map(char => {
-                return (
-                    Characters({ 'text': char, 'index': index.current })
-                )
-            });
-            setDisplay([...display, obj]);
+            setDisplay([...display, content]);
         }
-        if (index.current <= animationText.length) {
+        if (index.current < animationText.length) {
             setTimeout(load, 800);
         } else {
+            setLoaded(true)
             setTimeout(() => {
                 dispatch(setIntroState(true))
-            }, 4120);
+            }, 4520);
         };
     }, [index.current])
 
@@ -52,57 +51,7 @@ export default function IntroAnimation(props) {
             animate='show'
         >
             {display}
-
+            {loaded ? null: <TextLoader />}
         </motion.h1>
-    )
-}
-
-function Characters(props) {
-    const typingBlock = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                duration: 0,
-                repeat: 3,
-                repeatType: 'mirror',
-                repeatDelay: .2,
-            },
-            transitionEnd: { display:'none' }
-        }
-    }
-
-    const typingLetter = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                delay:.6,
-                duration: 0,
-            },
-        }
-    }
-
-    return (
-        <div
-            className="typing"
-            key={props.index}
-        >
-            <motion.div
-                className="typing-block"
-                variants={typingBlock}
-                initial='hidden'
-                animate='show'
-            >
-            </motion.div>
-            <motion.div
-                className="animation-text"
-                variants={typingLetter}
-                initial='hidden'
-                animate='show'
-            >
-                {props.text}
-            </motion.div>
-        </div>
     )
 }
