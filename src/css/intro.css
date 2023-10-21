@@ -169,17 +169,5 @@ a {
   background: black;
 }
 
-.typing {
-  font-family: 'Source Code Pro', monospace;
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: max-content;
-}
 
-.typing-block {
-  position: absolute;
-  height: calc(2.625rem + 4vh);
-  width: 100%;
-  background-color: green;
-}
+

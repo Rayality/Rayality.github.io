@@ -1,13 +1,12 @@
 import { motion, useAnimation, useInView } from "framer-motion"
-import { useEffect } from "react";
-import { useRef } from "react";
-import code from '../resources/text.png'
+import { useEffect, useRef } from "react";
 
-export default function RevealAnimation({ children, name }) {
+import Digital from "./Digital";
+
+export default function RevealAnimation({ children, name, width='100%' }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     const contentControls = useAnimation()
-
 
     useEffect(() => {
         if (isInView) {
@@ -37,32 +36,31 @@ export default function RevealAnimation({ children, name }) {
                 }}
                 initial='hidden'
                 animate={contentControls}
-                transition={{delay: .8, duration:.3}}
+                transition={{delay: 1.8, duration:.5}}
             >
                 {children}
             </motion.div>
             <motion.div
                 style={{
                     position: 'absolute',
+                    width:{width},
                     inset: 1,
-                    backgroundColor:'#111',
-                    backgroundImage: `url(${code})`,
-                    zIndex:100
+                    zIndex: 100,
                 }}
                 variants={{
                     hidden: {
-                        opacity: 0,
-                        left: '-100%',
+                        opacity: 1,
                     },
                     show: {
-                        opacity: 1,
-                        left: '100%',
+                        opacity: 0,
                     }
                 }}
                 initial='hidden'
                 animate={contentControls}
-                transition={{ duration: 1, delay: .1 }}
-            />
+                transition={{ duration: 2 }}
+            >
+                <Digital controls={contentControls} />
+            </motion.div>
         </motion.div>
     )
 }

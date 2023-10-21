@@ -1,6 +1,5 @@
 import '../css/intro.css'
 import Statement from '../components/Statement'
-import { useEffect, useState} from 'react'
 import Skills from "../components/Skills"
 import head from '../resources/headshot.png'
 import { Contact } from '../components/Contact'
@@ -34,6 +33,7 @@ export default function Intro() {
                 initial='hidden'
                 animate='show'
                 >
+
                     <section className="top-section">
                         <RevealAnimation name='pic-container'>
                             <div>
@@ -58,25 +58,26 @@ export default function Intro() {
                             <div className="projects-bg" />
                     </section>
 
-                    <RevealAnimation >
+
+                    <RevealAnimation width='50%'>
                         <section className="skills-section" >
-                            <RevealAnimation>
                                 <h2 className="skills-text">
                                     Tech that I use regularly for my projects
                                 </h2>
-                            </RevealAnimation>
                             <Skills/>
                         </section>
                     </RevealAnimation>
+
 
                     <section className='contact-section'>
                         <Contact/>
                         <div className="contact-bg"/>
                     </section>
-                    
+
                 </motion.div>
            :
-                <IntroAnimation text="Welcome" />}
+                <IntroAnimation text="Welcome" />
+            }
         </div>
     )
 }

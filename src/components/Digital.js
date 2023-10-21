@@ -1,9 +1,11 @@
 import { useRef, useEffect, Component } from 'react';
 
-export default function Digital() {
+
+export default function Digital(props) {
     let animID = useRef();
+    const canvasRef = useRef()
     useEffect(() => {
-        const canvas = document.getElementById("rain")
+        const canvas = canvasRef.current
         const ctx = canvas.getContext('2d')
         class Symbol extends Component{
             constructor(x, y, fontSize, canvasHeight) {
@@ -49,7 +51,7 @@ export default function Digital() {
         const fps = 10;
         const nextFrame = 1000/fps
         let timer = 0;
-        ctx.fillStyle = "rgb(0, 0, 0)"
+        ctx.fillStyle = "#111111"
         ctx.fillRect(0, 0, canvas.width, canvas.height)
 
         function animate(timeStamp) {
@@ -57,7 +59,7 @@ export default function Digital() {
             lastTime = timeStamp;
             if (timer > nextFrame) {
                 timer = 0
-                ctx.fillStyle = "rgba(0, 0, 0, 0.09)"
+                ctx.fillStyle = "rgba(11, 11, 011, 0.09)"
                 ctx.textAlign = 'center'
                 ctx.fillRect(0, 0, canvas.width, canvas.height)
                 ctx.fillStyle = '#0aff0a';
@@ -70,6 +72,14 @@ export default function Digital() {
         }
         animID.current = requestAnimationFrame(animate);
         return ()=>cancelAnimationFrame(animID.current)
-    },[])
+    }, [])
 
+    return <canvas
+        ref={canvasRef}
+        style={{
+            zIndex: 100,
+            width: '100%',
+            height: '100%'
+        }}
+    />
 }

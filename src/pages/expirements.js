@@ -38,30 +38,25 @@ export default function Expirements() {
         }
         let check = await handleUnload()
         if (check === true){
-        let rain = document.getElementById('rain')
         let head = document.getElementById('head')
         switch (name) {
             case 'Matrix Effect':
-                    rain.classList.remove('d-none');
                     head.classList.add('d-none');
                     setShown(name);
                 break;
 
             case 'Fractal Tree':
-                rain.classList.add('d-none');
                 head.classList.add('d-none');
                 setShown(name);
                 break;
-
             case 'Digital Image':
-                rain.classList.add('d-none');
+
                 head.classList.remove('d-none');
                 setShown(name);
                 break;
 
             case 'Flap Bat':
                 setRequestUnloadUnity(false)
-                rain.classList.add('d-none');
                 head.classList.add('d-none');
                 setShown('Flap Bat');
                 break;
@@ -131,10 +126,9 @@ export default function Expirements() {
                 </div>
                 <div className='experiment-display'>
                     <div className="experiment">
-                        <canvas id='rain' className="d-none" />
                         <canvas id='head' className="head d-none"/>
                         {shown === 'Digital Image' ? loaded ?  <Headshot picture={picture.current} />: null : null}
-                        {shown === 'Matrix Effect' ? <Digital/> : null}
+                        {shown === 'Matrix Effect' ? <Digital /> : null}
                         {shown === 'Fractal Tree' ? <Tree /> : null}
                         {shown === 'Flap Bat' ?
                             <BatGame shown={shown} setShown={setShown} requestUnload={requestUnloadUnity} unloadedReplacement={unloadUnityReplacement.current} />
