@@ -31,8 +31,8 @@ export default function Project(props) {
                             })}
                         </ul>
                         <a
-                            style={{display:'inline'}}
-                            href={props.link}
+                            style={{ display: 'inline', width: 'max-content' }}
+                            href={ props.link }
                             rel='noreferrer'
                             target='_blank'
                         >
@@ -42,7 +42,13 @@ export default function Project(props) {
             </RevealAnimation>
             <RevealAnimation>
                 <div className="video-container">
-                    <video className='project-video' autoPlay={true} loop={true} muted={true} playsInline={true}>
+                    <video
+                        className='project-video'
+                        autoPlay={true}
+                        loop={true}
+                        muted={true}
+                        playsInline={true}
+                    >
                         <source
                             src={props.video}
                             type='video/mp4'

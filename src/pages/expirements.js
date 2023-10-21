@@ -12,7 +12,7 @@ import treepic from '../resources/FractalTree.png'
 import Experiment from '../components/ExperimentContent'
 
 export default function Expirements() {
-    let picture = useRef();
+    const picture = useRef();
     const [loaded, setLoaded] = useState(false)
     const [shown, setShown] = useState('')
     const [requestUnloadUnity, setRequestUnloadUnity] = useState(true)
@@ -41,23 +41,19 @@ export default function Expirements() {
         let head = document.getElementById('head')
         switch (name) {
             case 'Matrix Effect':
-                    head.classList.add('d-none');
-                    setShown(name);
+                setShown(name);
                 break;
 
             case 'Fractal Tree':
-                head.classList.add('d-none');
                 setShown(name);
                 break;
-            case 'Digital Image':
 
-                head.classList.remove('d-none');
+            case 'Digital Image':
                 setShown(name);
                 break;
 
             case 'Flap Bat':
                 setRequestUnloadUnity(false)
-                head.classList.add('d-none');
                 setShown('Flap Bat');
                 break;
 
@@ -126,8 +122,7 @@ export default function Expirements() {
                 </div>
                 <div className='experiment-display'>
                     <div className="experiment">
-                        <canvas id='head' className="head d-none"/>
-                        {shown === 'Digital Image' ? loaded ?  <Headshot picture={picture.current} />: null : null}
+                        {shown === 'Digital Image' ? loaded ?  <Headshot picture={picture.current} width='600px' />: null : null}
                         {shown === 'Matrix Effect' ? <Digital /> : null}
                         {shown === 'Fractal Tree' ? <Tree /> : null}
                         {shown === 'Flap Bat' ?

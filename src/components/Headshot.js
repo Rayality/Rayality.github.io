@@ -2,10 +2,14 @@ import { useEffect } from 'react';
 import { useRef } from 'react';
 
 export default function Headshot(props) {
-    let animID = useRef();
+    const animID = useRef();
+    const ref = useRef();
+    let picWidth;
+    props.width ? picWidth = props.width : picWidth = '100%'
+
     useEffect(() => {
         const picture = props.picture
-        const canv = document.getElementById('head');
+        const canv = ref.current;
         const ctx = canv.getContext('2d');
         canv.width = 700;
         canv.height = 700;
@@ -90,4 +94,5 @@ export default function Headshot(props) {
         animID.current=requestAnimationFrame(animate);
         return ()=>cancelAnimationFrame(animID.current)
     }, [])
+    return <canvas ref={ref} style={{ width: picWidth, height: '100%' }}/>
 }

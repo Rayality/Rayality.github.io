@@ -20,7 +20,7 @@ export default function Digital(props) {
             draw(context) {
                 this.text = this.characters.charAt(Math.floor(Math.random() * this.characters.length))
                 context.fillText(this.text, this.x * this.fontSize, this.y * this.fontSize)
-                if (this.y * this.fontSize > this.canvasHeight && Math.random() > 0.94) {
+                if (this.y * this.fontSize > this.canvasHeight && Math.random() > 0.84) {
                     this.y = 0;
                 } else {
                     this.y += 1;
@@ -48,7 +48,7 @@ export default function Digital(props) {
 
         let effect = new Effect(canvas.width, canvas.height);
         let lastTime = 0;
-        const fps = 10;
+        const fps = 20;
         const nextFrame = 1000/fps
         let timer = 0;
         ctx.fillStyle = "#111111"

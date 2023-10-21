@@ -79,9 +79,6 @@ a {
   .front-page {
     padding: 0rem;
   }
-  .construction{
-    padding: .1rem;
-  }
 
   .statement {
     padding: .1rem .2rem;
@@ -168,6 +165,3 @@ a {
   color: #00ff22;
   background: black;
 }
-
-
-

@@ -1,18 +1,32 @@
 import { motion, useAnimation, useInView } from "framer-motion"
-import { useEffect, useRef } from "react";
-
+import { useEffect, useRef, useState } from "react";
+import Headshot from "./Headshot";
 import Digital from "./Digital";
+import head from '../resources/headshot.png'
 
-export default function RevealAnimation({ children, name, width='100%' }) {
+
+export default function RevealAnimation({ children, name='', width='100%' }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     const contentControls = useAnimation()
+    const picture = useRef();
+    const [picLoaded, setPicLoaded] = useState(false);
 
     useEffect(() => {
         if (isInView) {
             contentControls.start('show')
         }
+        if (name === 'pic-container') {
+            picture.current = new Image()
+            picture.current.src = head
+            picture.current.addEventListener('load', handleLoaded);
+        }
+
     }, [isInView]);
+
+    function handleLoaded() {
+        setPicLoaded(true);
+    }
 
     return (
         <motion.div
@@ -23,7 +37,7 @@ export default function RevealAnimation({ children, name, width='100%' }) {
                     hidden: { opacity: 0 },
                 show: {
                     opacity: 1,
-                    transition: {duration:2}
+                    transition: { duration: 2 },
                 }
                 }}
             initial='hidden'
@@ -36,7 +50,7 @@ export default function RevealAnimation({ children, name, width='100%' }) {
                 }}
                 initial='hidden'
                 animate={contentControls}
-                transition={{delay: 1.8, duration:.5}}
+                transition={{delay: 2, duration:2}}
             >
                 {children}
             </motion.div>
@@ -53,13 +67,18 @@ export default function RevealAnimation({ children, name, width='100%' }) {
                     },
                     show: {
                         opacity: 0,
+                        transition: { duration: 3 },
+                        transitionEnd: { display: 'none' }
                     }
                 }}
                 initial='hidden'
                 animate={contentControls}
-                transition={{ duration: 2 }}
             >
-                <Digital controls={contentControls} />
+                { name === 'pic-container' ?
+                    picLoaded ? <Headshot picture={picture.current} /> : null
+                    :
+                    <Digital controls={contentControls} />
+                }
             </motion.div>
         </motion.div>
     )
