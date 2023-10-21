@@ -10,7 +10,8 @@ export default function Resume() {
                 <img className='bg-image' src={parch} alt='paper' />
                 <div className='wrapper'>
                     <h1 className='me'>Charles Cowan</h1>
-                    <p>linkedin.com/in/charles-cowan-286764265 | gitlab.com/CharlesRay</p>
+                    <p>Lifelong engineer with an obsession for problem-solving and a passion for elegant solutions.</p>
+                    <p>linkedin.com/in/charles-cowan-286764265 | gitlab.com/CharlesRay | </p>
                 </div>
                 <div className='wrapper'>
                     <h2>Technical Skills</h2>
@@ -22,17 +23,20 @@ export default function Resume() {
                 <div className='wrapper'>
                     <h2>Application Development Experience</h2>
                     <h4>MatchFynder</h4>
-                    <p>An application to assist groups in finding a place to eat. Uses React, FastAPI, and Postgresql Docker containers</p>
+                    <p>An application to assist groups in finding a place to eat. Technologies: React, FastAPI, Postgresql, and Docker.</p>
                     <ul>
-                        <li>Utilized React and Google API to get results/directions to facilitate restaurant search and arrival.</li>
-                        <li>Created dynamic PostgreSQL insert/select/update functions, streamlining database interactions.</li>
+                        <li>
+                            Led end-to-end development from concept to reality. Including user story creation, wireframing,
+                            design engineering, team creation, task planning, and process setup in an AGILE environment.
+                        </li>
+                        <li>Created dynamic PostgreSQL functions and improved code by condensing 170 lines to 20.</li>
                         <li>Implemented Websockets/Redux to manage data; creating a unique/real-time user experiences.</li>
                     </ul>
                     <h4>Wheeler Dealer</h4>
-                    <p>Django microservices for managing a car dealership. Combines vehicle service dept., sales dept., and inventory.</p>
+                    <p>Microservices for managing a car dealership. Technologies: Django, Python, React, RabbitMQ, and PostgreSQL.</p>
                     <ul>
-                        <li>Worked cohesively using domain-driven design to deliver a user-friendly interface to employees.</li>
-                        <li>Integrated multiple Django API containers; presented on a React/JavaScript website for users.</li>
+                        <li>Used domain-driven design to deliver a user-friendly interface to employees and costumers.</li>
+                        <li>Integrated multiple Django API microservices; Designed and built React/JavaScript frontend UI.</li>
                     </ul>
                     <h4>Conference Convergence</h4>
                     <p>An application to manage conference events. Tracks presentations and attendees for each event.</p>
@@ -47,7 +51,10 @@ export default function Resume() {
                         <h4>International Paper | <p>Maintenance Technician</p></h4><div>2021-2022</div>
                     </div>
                     <ul>
-                        <li>Diagnosed and repaired faults in complex manufacturing systems to reduce production stops.</li>
+                        <li>
+                            Process Engineering: Identified, diagnosed, and implemented improvements to complex
+                            anufacturing systems to improve performance measured in both time and quality.
+                        </li>
                         <li>
                             Conducted interviews with each machine operator weekly,
                             and designed/constructed modifications to their machines
@@ -58,8 +65,8 @@ export default function Resume() {
                         <h4>Air Force | <p>Electrical Systems Craftsman</p></h4><div>2012-2022</div>
                     </div>
                     <ul>
-                        <li>Reviewed and designed electrical systems to ensure a balanced and functional electrical grid.</li>
-                        <li>Assessed and resolved errors in electrical systems to prevent further service interruptions.</li>
+                        <li>Located and resolved faults in complex electrical systems to resolve service interruptions.</li>
+                        <li>Progressed from E1 to E6 within 6 years, twice as fast as average, due to knowledge/esteem.</li>
                     </ul>
                     <h2>Education</h2>
                     <div className="info-date">
