@@ -164,5 +164,12 @@ a {
   justify-content: center;
   text-align: center;
   color: #00ff22;
-  background: black;
+  background: #111;
+}
+
+.intro-h1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

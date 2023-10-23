@@ -3,20 +3,14 @@
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    gap: 1rem;
-    width: 55rem;
-    height: 55rem;
-    margin: 1rem auto 1rem;
 }
 
 .piece {
-    width: 6rem;
-    height: 6rem;
+    width: 5rem;
+    height: 5rem;
 }
 
 .piece-image {
     height: 100%;
     width: 100%;
 }
-
-

@@ -9,125 +9,173 @@ import shield from '../resources/shield.png'
 
 export default function MatchGame() {
     const [currentBoard, setCurrentBoard] = useState([]);
+    const size = 8;
     const pieces = [
         { 'sword': sword },
         { 'mace': mace },
         { 'spear': spear },
         { 'shield': shield }
     ];
-    const size = 8;
 
     function randomPiece() {
         let randomPieceIndex = Math.floor(Math.random() * pieces.length);
         return pieces[randomPieceIndex]
     }
 
-    function checkColumnOfThree() {
-        for (let i = 0; i < 47; i++){
-            const columnCheck = [i, i + size, i + size * 2];
-            const currentPiece = Object.keys(currentBoard[i])[0];
-            if (columnCheck.every(pieceIndex => Object.keys(currentBoard[pieceIndex])[0] === currentPiece)) {
-                columnCheck.forEach(pieceIndex => currentBoard[pieceIndex] = randomPiece());
-            };
-        };
-    };
-
-    function checkColumnOfFour() {
-        for (let i = 0; i < 39; i++){
-            const columnCheck = [i, i + size, i + size * 2, i + size * 3];
-            const currentPiece = Object.keys(currentBoard[i])[0];
-            if (columnCheck.every(pieceIndex => Object.keys(currentBoard[pieceIndex])[0] === currentPiece)) {
-                columnCheck.forEach(pieceIndex => currentBoard[pieceIndex] = randomPiece());
-            };
-        };
-    };
-
-    function checkColumnOfFive() {
-        for (let i = 0; i < 31; i++){
-            const columnCheck = [i, i + size, i + size * 2, i + size * 3, i + size * 4];
-            const currentPiece = Object.keys(currentBoard[i])[0];
-            if (columnCheck.every(pieceIndex => Object.keys(currentBoard[pieceIndex])[0] === currentPiece)) {
-                columnCheck.forEach(pieceIndex => currentBoard[pieceIndex] = randomPiece());
-            };
-        };
-    };
-
-    function checkRowOfThree() {
-        for (let i = 0; i < 64; i++) {
-            const rowCheck = [i, i + 1, i + 2];
-            const currentPiece = Object.keys(currentBoard[i])[0];
-            const skipped = [6, 7, 14, 15, 22, 23, 30, 31, 38, 39, 46, 47, 54, 55, 63, 64];
-            if (skipped.includes(i)) continue;
-            if (rowCheck.every(pieceIndex => Object.keys(currentBoard[pieceIndex])[0] === currentPiece)) {
-                rowCheck.forEach(pieceIndex => currentBoard[pieceIndex] = randomPiece());
-            };
-        }
-    };
-
-    function checkRowOfFour() {
-        for (let i = 0; i < 64; i++) {
-            const rowCheck = [i, i + 1, i + 2, i + 3];
-            const currentPiece = Object.keys(currentBoard[i])[0];
-            const skipped = [6, 7, 14, 15, 22, 23, 30, 31, 38, 39, 46, 47, 54, 55, 63, 64];
-            if (skipped.includes(i+1)) continue;
-            if (rowCheck.every(pieceIndex => Object.keys(currentBoard[pieceIndex])[0] === currentPiece)) {
-                rowCheck.forEach(pieceIndex => currentBoard[pieceIndex] = randomPiece());
-            };
-        }
-    };
-
-    function checkRowOfFive() {
-        for (let i = 0; i < 64; i++) {
-            const rowCheck = [i, i + 1, i + 2, i + 3, i + 4];
-            const currentPiece = Object.keys(currentBoard[i])[0];
-            const skipped = [6, 7, 14, 15, 22, 23, 30, 31, 38, 39, 46, 47, 54, 55, 63, 64, 65, 66];
-            if (skipped.includes(i+2)) continue;
-            if (rowCheck.every(pieceIndex => Object.keys(currentBoard[pieceIndex])[0] === currentPiece)) {
-                rowCheck.forEach(pieceIndex => currentBoard[pieceIndex] = randomPiece());
-            };
-        }
-    };
-
     function createBoard() {
-        const piecesArray = [];
-        for (let i = 0; i < (size*size); i++){
-            piecesArray.push(randomPiece());
+        const boardArray = [];
+        for (let i = 0; i < size; i++){
+            const pieceArray = [];
+            for (let j = 0; j < size; j++) {
+                pieceArray.push(randomPiece());
+            };
         };
-        setCurrentBoard(piecesArray);
+        setCurrentBoard(boardArray);
     };
 
     useEffect(() => {
         createBoard()
     }, []);
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            console.log('checking')
-            checkColumnOfFive()
-            checkColumnOfFour()
-            checkColumnOfThree()
-            checkRowOfFive()
-            checkRowOfFour()
-            checkRowOfThree()
-            setCurrentBoard([...currentBoard])
-        }, 300);
-        return () => clearInterval(timer)
-    }, [currentBoard])
-
     return (
         <div className='board'>
-            {currentBoard.map((piece, index) => {
-                const [name, image] = Object.entries(piece)[0]
-                return (
-                    <div className='piece' key={index}>
-                        {index}
-                        <img className='piece-image' src={image} alt={name} />
-                    </div>
-                )
+            {currentBoard.map((column, index) => {
+                column.map((piece, index) => {
+                    const [name, image] = Object.entries(piece)[0]
+                    return (
+                        <div className='piece'>
+                            <img src={image} alt={name} />
+                        </div>
+                    )
+                })
             })}
         </div>
     )
+
 }
+
+
+// export default function MatchGame() {
+//     const [currentBoard, setCurrentBoard] = useState([]);
+//     const pieces = [
+//         { 'sword': sword },
+//         { 'mace': mace },
+//         { 'spear': spear },
+//         { 'shield': shield }
+//     ];
+//     const size = 8;
+
+//     function randomPiece() {
+//         let randomPieceIndex = Math.floor(Math.random() * pieces.length);
+//         return pieces[randomPieceIndex]
+//     }
+
+//     function checkColumnOfThree() {
+//         for (let i = 0; i < 47; i++){
+//             const columnCheck = [i, i + size, i + size * 2];
+//             const currentPiece = Object.keys(currentBoard[i])[0];
+//             if (columnCheck.every(pieceIndex => Object.keys(currentBoard[pieceIndex])[0] === currentPiece)) {
+//                 columnCheck.forEach(pieceIndex => currentBoard[pieceIndex] = randomPiece());
+//             };
+//         };
+//     };
+
+//     function checkColumnOfFour() {
+//         for (let i = 0; i < 39; i++){
+//             const columnCheck = [i, i + size, i + size * 2, i + size * 3];
+//             const currentPiece = Object.keys(currentBoard[i])[0];
+//             if (columnCheck.every(pieceIndex => Object.keys(currentBoard[pieceIndex])[0] === currentPiece)) {
+//                 columnCheck.forEach(pieceIndex => currentBoard[pieceIndex] = randomPiece());
+//             };
+//         };
+//     };
+
+//     function checkColumnOfFive() {
+//         for (let i = 0; i < 31; i++){
+//             const columnCheck = [i, i + size, i + size * 2, i + size * 3, i + size * 4];
+//             const currentPiece = Object.keys(currentBoard[i])[0];
+//             if (columnCheck.every(pieceIndex => Object.keys(currentBoard[pieceIndex])[0] === currentPiece)) {
+//                 columnCheck.forEach(pieceIndex => currentBoard[pieceIndex] = randomPiece());
+//             };
+//         };
+//     };
+
+//     function checkRowOfThree() {
+//         for (let i = 0; i < 64; i++) {
+//             const rowCheck = [i, i + 1, i + 2];
+//             const currentPiece = Object.keys(currentBoard[i])[0];
+//             const skipped = [6, 7, 14, 15, 22, 23, 30, 31, 38, 39, 46, 47, 54, 55, 63, 64];
+//             if (skipped.includes(i)) continue;
+//             if (rowCheck.every(pieceIndex => Object.keys(currentBoard[pieceIndex])[0] === currentPiece)) {
+//                 rowCheck.forEach(pieceIndex => currentBoard[pieceIndex] = randomPiece());
+//             };
+//         }
+//     };
+
+//     function checkRowOfFour() {
+//         for (let i = 0; i < 64; i++) {
+//             const rowCheck = [i, i + 1, i + 2, i + 3];
+//             const currentPiece = Object.keys(currentBoard[i])[0];
+//             const skipped = [6, 7, 14, 15, 22, 23, 30, 31, 38, 39, 46, 47, 54, 55, 63, 64];
+//             if (skipped.includes(i+1)) continue;
+//             if (rowCheck.every(pieceIndex => Object.keys(currentBoard[pieceIndex])[0] === currentPiece)) {
+//                 rowCheck.forEach(pieceIndex => currentBoard[pieceIndex] = randomPiece());
+//             };
+//         }
+//     };
+
+//     function checkRowOfFive() {
+//         for (let i = 0; i < 64; i++) {
+//             const rowCheck = [i, i + 1, i + 2, i + 3, i + 4];
+//             const currentPiece = Object.keys(currentBoard[i])[0];
+//             const skipped = [6, 7, 14, 15, 22, 23, 30, 31, 38, 39, 46, 47, 54, 55, 63, 64, 65, 66];
+//             if (skipped.includes(i+2)) continue;
+//             if (rowCheck.every(pieceIndex => Object.keys(currentBoard[pieceIndex])[0] === currentPiece)) {
+//                 rowCheck.forEach(pieceIndex => currentBoard[pieceIndex] = randomPiece());
+//             };
+//         }
+//     };
+
+//     function createBoard() {
+//         const piecesArray = [];
+//         for (let i = 0; i < (size*size); i++){
+//             piecesArray.push(randomPiece());
+//         };
+//         setCurrentBoard(piecesArray);
+//     };
+
+//     useEffect(() => {
+//         createBoard()
+//     }, []);
+
+//     useEffect(() => {
+//         const timer = setInterval(() => {
+//             console.log('checking')
+//             checkColumnOfFive()
+//             checkColumnOfFour()
+//             checkColumnOfThree()
+//             checkRowOfFive()
+//             checkRowOfFour()
+//             checkRowOfThree()
+//             setCurrentBoard([...currentBoard])
+//         }, 300);
+//         return () => clearInterval(timer)
+//     }, [currentBoard])
+
+//     return (
+//         <div className='board'>
+//             {currentBoard.map((piece, index) => {
+//                 const [name, image] = Object.entries(piece)[0]
+//                 return (
+//                     <div className='piece' key={index}>
+//                         {index}
+//                         <img className='piece-image' src={image} alt={name} />
+//                     </div>
+//                 )
+//             })}
+//         </div>
+//     )
+// }
 
 
 
