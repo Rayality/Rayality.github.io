@@ -9,28 +9,30 @@ export default function Projects() {
     return (
         <div className='projects-wrapper'>
             <RevealAnimation>
-                <h2 style={{textAlign:'center'}}>Projects</h2>
+                <h2 style={{ margin: 'auto', width: 'max-content' }}>
+                    Projects
+                </h2>
             </RevealAnimation>
-                <Project
-                    video={MatchFynder}
-                    title="MatchFynder"
-                    description="
-                        Match Fynder facilitates easy, fun decision-making for busy groups of people.
-                        A group of your friends/family match with a nearby restaurant via a Tinder-like interface.
-                        When all participants agree on a place everyone is notified and shown details about the match.
-                    "
-                    skills={[
-                        "React",
-                        "Javascript",
-                        "PostgreSQL",
-                        "Redux",
-                        "Python",
-                        "FastAPI",
-                        "CSS"
-                    ]}
-                    link="https://github.com/Rayality/MatchFynder/"
-                    icon="git"
-                />
+            <Project
+                video={MatchFynder}
+                title="MatchFynder"
+                description="
+                    Match Fynder facilitates easy, fun decision-making for busy groups of people.
+                    A group of your friends/family match with a nearby restaurant via a Tinder-like interface.
+                    When all participants agree on a place everyone is notified and shown details about the match.
+                "
+                skills={[
+                    "React",
+                    "Javascript",
+                    "PostgreSQL",
+                    "Redux",
+                    "Python",
+                    "FastAPI",
+                    "CSS"
+                ]}
+                link="https://github.com/Rayality/MatchFynder/"
+                icon="git"
+            />
 
             <Project
                 video={FlapBat}

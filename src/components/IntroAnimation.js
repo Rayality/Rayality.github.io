@@ -10,7 +10,7 @@ export default function IntroAnimation(props) {
     const animationText = props.text;
     const [display, setDisplay] = useState([]);
     const [loaded, setLoaded] = useState(false)
-    const index = useRef(0);
+    const index = useRef(1);
     const zoom = {
         hidden: {
             opacity: 1,
@@ -29,11 +29,11 @@ export default function IntroAnimation(props) {
 
     useEffect(() => {
         const load = () => {
-            const content = [animationText.charAt(index.current)]
+            const content = animationText.slice(0, index.current)
             index.current++;
-            setDisplay([...display, content]);
+            setDisplay(content);
         }
-        if (index.current < animationText.length) {
+        if (index.current <= animationText.length) {
             setTimeout(load, 800);
         } else {
             setLoaded(true)
@@ -83,10 +83,10 @@ export default function IntroAnimation(props) {
                             ],
                             scale: [
                                 1,
-                                1.5,
                                 2,
-                                2.5,
-                                1135
+                                3,
+                                4,
+                                1000
                             ],
                             transition: {
                                 delay: 7,

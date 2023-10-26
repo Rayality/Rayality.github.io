@@ -27,7 +27,7 @@ export default function Intro() {
 
     return (
         <div className="front-page">
-            {completedIntro ?
+            {/* {completedIntro ? */}
                 <motion.div
                 variants={fade}
                 initial='hidden'
@@ -46,27 +46,29 @@ export default function Intro() {
                             </div>
                         </RevealAnimation>
 
-                        <RevealAnimation name='statement'>
+                    <RevealAnimation name='flexed-50'>
+                        <div className='statement'>
                             <Statement
                                 text="Welcome! My name is Charles. Be sure to check out the 'Experiments' page for games and small creations/animations."
                             />
+
+                        </div>
                         </RevealAnimation>
                     </section>
 
                     <section className="projects">
                             <Projects />
-                            <div className="projects-bg" />
                     </section>
 
 
-                    <RevealAnimation width='50%'>
-                        <section className="skills-section" >
-                                <h2 className="skills-text">
-                                    Tech that I use regularly for my projects
-                                </h2>
-                            <Skills/>
-                        </section>
-                    </RevealAnimation>
+                    <section className="skills-section" >
+                        <RevealAnimation width='50%'>
+                            <h3 style={{ marginInline: 'auto', width: 'max-content', }}>
+                                        Tech that I use regularly for my projects
+                            </h3>
+                        </RevealAnimation>
+                        <Skills/>
+                    </section>
 
 
                     <section className='contact-section'>
@@ -75,9 +77,9 @@ export default function Intro() {
                     </section>
 
                 </motion.div>
-           :
-                <IntroAnimation text="Welcome" />
-            }
+             {/* :
+                 <IntroAnimation text="Welcome" />
+            } */}
         </div>
     )
 }

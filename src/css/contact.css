@@ -33,10 +33,11 @@
     gap: 1rem;
 }
 
-@media (max-width:900px){
+@media (max-width:600px){
     .email-wrapper{
         display: flex;
         flex-direction: column;
+        width: 100%;
     }
 }
 
@@ -64,8 +65,6 @@
 }
 
 .group-col {
-    flex-basis: 30%;
-    flex-grow: 1;
     display: grid;
     grid-template-columns: 1rem 1fr 1rem;
     grid-template-rows: .1fr .2fr 1fr;
@@ -94,7 +93,6 @@
 .group-col .group.social-group {
     grid-column: 1/4;
     grid-row: 2/4;
-    /* box-shadow: var(--shadow) var(--accent); */
 }
 
 .border-effect {
@@ -117,7 +115,6 @@
     grid-column: 2/3;
     background-color: var(--neutral);
     border-radius: 1rem;
-    /* box-shadow: var(--shadow) var(--accent); */
 }
 
 .group :nth-child(1) {
