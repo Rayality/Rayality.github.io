@@ -27,7 +27,7 @@ export default function Intro() {
 
     return (
         <div className="front-page">
-            {/* {completedIntro ? */}
+            {completedIntro ?
                 <motion.div
                 variants={fade}
                 initial='hidden'
@@ -77,9 +77,9 @@ export default function Intro() {
                     </section>
 
                 </motion.div>
-             {/* :
+             :
                  <IntroAnimation text="Welcome" />
-            } */}
+            }
         </div>
     )
 }
