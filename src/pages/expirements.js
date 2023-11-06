@@ -17,7 +17,7 @@ export default function Expirements() {
     const [picture, setPicture] = useState(new Image())
     const canvRef = useRef();
     const [loaded, setLoaded] = useState(false)
-    const [shown, setShown] = useState('none')
+    const [shown, setShown] = useState('')
     const [requestUnloadUnity, setRequestUnloadUnity] = useState(true)
     const unloadUnityReplacement = useRef()
 
