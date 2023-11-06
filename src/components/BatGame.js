@@ -23,6 +23,6 @@ export default function BatGame(props) {
     }
 
     return (
-        <Unity unityProvider={unityProvider}  style={{ width: '50%', height: '100%', minWidth: '350px' }}/>
+        <Unity unityProvider={unityProvider}  style={{ height: '100%', minWidth: '350px' }}/>
     );
 }

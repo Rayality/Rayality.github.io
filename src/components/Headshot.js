@@ -93,5 +93,5 @@ export default function Headshot({ picture, canvasRef }) {
         animID.current = requestAnimationFrame(animate);
         return ()=> cancelAnimationFrame(animID.current)
     }, [picture])
-    return <canvas ref={ref} style={{width:'100%', height:'100%'}}/>
+    return <canvas ref={ref} style={{maxWidth:'100%', maxHeight:'100%'}}/>
 }

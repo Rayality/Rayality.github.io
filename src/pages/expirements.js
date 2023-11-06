@@ -15,7 +15,7 @@ export default function Expirements() {
     const [picture, setPicture] = useState(new Image())
     const canvRef = useRef();
     const [loaded, setLoaded] = useState(false)
-    const [shown, setShown] = useState('')
+    const [shown, setShown] = useState('none')
     const [requestUnloadUnity, setRequestUnloadUnity] = useState(true)
     const unloadUnityReplacement = useRef()
 
@@ -33,29 +33,34 @@ export default function Expirements() {
         unloadUnityReplacement.current = name
         if (name !== 'Flap Bat') {
             setRequestUnloadUnity(true)
+            if (shown === 'Flap Bat') {
+                return
+            }
         }
         let check = await handleUnload()
         if (check === true){
-        switch (name) {
-            case 'Matrix Effect':
-                setShown(name);
-                break;
+            switch (name) {
+                case 'Matrix Effect':
+                    setShown(name);
+                    break;
 
-            case 'Fractal Tree':
-                setShown(name);
-                break;
+                case 'Fractal Tree':
+                    setShown(name);
+                    break;
 
-            case 'Digital Image':
-                setShown(name);
-                break;
+                case 'Digital Image':
+                    setShown(name);
+                    break;
 
-            case 'Flap Bat':
-                setRequestUnloadUnity(false)
-                setShown('Flap Bat');
-                break;
-
-            default:
-                break;
+                case 'Flap Bat':
+                    setRequestUnloadUnity(false)
+                    setShown(name);
+                    break;
+                case 'none':
+                    setShown(name)
+                    break;
+                default:
+                    break;
             }
         } else {
             setTimeout(() => handleExpirement(e), 2000)
@@ -66,6 +71,7 @@ export default function Expirements() {
     async function handleUnload() {
         return true
     }
+
     function handlePicture(e) {
         const reader = new FileReader();
         const img = new Image();
@@ -80,10 +86,10 @@ export default function Expirements() {
         reader.addEventListener('load', picLoaded)
     }
 
-
     return (
-        <div>
-            <div className='options'>
+
+        <div className='options'>
+            {shown === 'none' ?
                 <div className='tech-area'>
                     <div className='area-description'>
                         <h2 className='glitch' effect="Experiments">Experiments</h2>
@@ -99,8 +105,8 @@ export default function Expirements() {
                         click={handleExpirement}
                         picture={gamepic}
                         description="My first game built with Unity.
-                         It has a 'flappy bird' style of gameplay with increasing difficulty.
-                         Use spacebar or left mouseclick to navigate through obstacles."
+                            It has a 'flappy bird' style of gameplay with increasing difficulty.
+                            Use spacebar or left mouseclick to navigate through obstacles."
                         />
                         <Experiment
                             title="Fractal Tree"
@@ -132,30 +138,51 @@ export default function Expirements() {
                         />
                     </div>
                 </div>
+                :
                 <div className='experiment-display'>
+                    <button onClick={handleExpirement} name='none' className='backButton'>Back to experiments</button>
                     <div className="experiment">
                         {shown === 'Digital Image' ?
                             <div>
-                                <input
-                                    id='imageUpload'
+                                <label
+                                    htmlFor='imageUpload'
                                     className='imageUpload'
-                                    type='file'
-                                    accept='image/*'
-                                    onChange={handlePicture}
-                                />
-                                {loaded ? <Headshot picture={picture} canvasRef={canvRef} /> : null }
-                            </div> : null
+                                >
+                                    Use your own image
+                                    <input
+                                        id='imageUpload'
+                                        type='file'
+                                        accept='image/*'
+                                        style={{display:'none'}}
+                                        onChange={handlePicture}
+                                    />
+                                </label>
+                                {loaded ?
+                                    <Headshot
+                                        picture={picture}
+                                    />
+                                    :
+                                    null
+                                }
+                            </div>
+                            :
+                            null
                         }
                         {shown === 'Matrix Effect' ? <Digital /> : null}
                         {shown === 'Fractal Tree' ? <Tree /> : null}
                         {shown === 'Flap Bat' ?
-                            <BatGame shown={shown} setShown={setShown} requestUnload={requestUnloadUnity} unloadedReplacement={unloadUnityReplacement.current} />
+                            <BatGame
+                                shown={shown}
+                                setShown={setShown}
+                                requestUnload={requestUnloadUnity}
+                                unloadedReplacement={unloadUnityReplacement.current}
+                            />
                             :
                             null
                         }
                     </div>
                 </div>
-            </div>
+            }
         </div>
     )
 }
