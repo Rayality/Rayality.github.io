@@ -7,7 +7,7 @@ import head from '../resources/headshot.png'
 
 export default function RevealAnimation({ children, name='', width='100%' }) {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
+    const isInView = useInView(ref, { once: true, amount: .5 });
     const contentControls = useAnimation()
     const picture = useRef();
     const [picLoaded, setPicLoaded] = useState(false);
@@ -15,7 +15,7 @@ export default function RevealAnimation({ children, name='', width='100%' }) {
     useEffect(() => {
         if (isInView) {
             contentControls.start('show')
-        }
+        } 
         if (name === 'pic-container') {
             picture.current = new Image()
             picture.current.src = head

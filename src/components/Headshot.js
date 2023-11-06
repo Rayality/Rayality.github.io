@@ -1,20 +1,17 @@
-import { useEffect } from 'react';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
-export default function Headshot(props) {
-    const animID = useRef();
-    const ref = useRef();
-    let picWidth;
-    props.width ? picWidth = props.width : picWidth = '100%'
+
+export default function Headshot({ picture, canvas }) {
+    const animID = useRef(null);
+    const ref = useRef(null);
 
     useEffect(() => {
-        const picture = props.picture
-        const canv = ref.current;
-        const ctx = canv.getContext('2d');
+        const canv = canvas;
+        const ctx = canv.getContext('2d', { willReadFrequently: true });
+        ctx.reset()
+        ctx.clearRect(0, 0, canv.width, canv.height);
         canv.width = 700;
         canv.height = 700;
-        let particles = [];
-        const numberOfParticles = 2000;
         ctx.drawImage(picture, 0, 0, canv.width, canv.height)
         const pixels = ctx.getImageData(0, 0, canv.width, canv.height);
         ctx.clearRect(0, 0, canv.width, canv.height)
@@ -30,6 +27,8 @@ export default function Headshot(props) {
             }
             imageMap.push(row);
         }
+        let particles = [];
+        const numberOfParticles = imageMap.length * 4;
 
         function howBright(red, green, blue) {
             return Math.sqrt(
@@ -66,7 +65,7 @@ export default function Headshot(props) {
             draw() {
                 ctx.beginPath();
                 ctx.fillStyle = 'rgb(50, 201, 20)';
-                ctx.fillText(this.chars.charAt(Math.random()*this.chars.length),this.x, this.y);
+                ctx.fillText(this.chars.charAt(Math.random() * this.chars.length),this.x, this.y);
                 ctx.fill();
             }
         }
@@ -85,14 +84,14 @@ export default function Headshot(props) {
             ctx.globalAlpha = .2;
             particles.forEach((particle) => {
                 particle.update();
-                ctx.globalAlpha = particle.speed * 0.1;
+                ctx.globalAlpha = particle.speed * 0.15;
                 particle.draw();
             })
             cancelAnimationFrame(animID.current)
             animID.current=requestAnimationFrame(animate);
         }
-        animID.current=requestAnimationFrame(animate);
-        return ()=>cancelAnimationFrame(animID.current)
-    }, [])
-    return <canvas ref={ref} style={{ width: picWidth, height: '100%' }}/>
+        animID.current = requestAnimationFrame(animate);
+        return ()=> cancelAnimationFrame(animID.current)
+    }, [picture])
+
 }

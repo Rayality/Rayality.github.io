@@ -12,25 +12,23 @@ import treepic from '../resources/FractalTree.png'
 import Experiment from '../components/ExperimentContent'
 
 export default function Expirements() {
-    const picture = useRef();
+    const [picture, setPicture] = useState(new Image())
+    const canvRef = useRef();
     const [loaded, setLoaded] = useState(false)
     const [shown, setShown] = useState('')
     const [requestUnloadUnity, setRequestUnloadUnity] = useState(true)
     const unloadUnityReplacement = useRef()
 
     useEffect(() => {
-        picture.current = new Image();
-        picture.current.src = head;
-        picture.current.addEventListener('load', handleLoaded);
-    }, [shown, unloadUnityReplacement.current, setShown])
+        picture.src = head;
+        picture.addEventListener('load', handleLoaded);
+    }, [])
 
     function handleLoaded() {
         setLoaded(true)
     }
 
-
     async function handleExpirement(e) {
-        console.log(e)
         const name = e.target.name
         unloadUnityReplacement.current = name
         if (name !== 'Flap Bat') {
@@ -38,7 +36,6 @@ export default function Expirements() {
         }
         let check = await handleUnload()
         if (check === true){
-        let head = document.getElementById('head')
         switch (name) {
             case 'Matrix Effect':
                 setShown(name);
@@ -69,6 +66,20 @@ export default function Expirements() {
     async function handleUnload() {
         return true
     }
+    function handlePicture(e) {
+        const reader = new FileReader();
+        const img = new Image();
+        const file = e.target.files[0];
+        reader.readAsDataURL(file);
+        const picLoaded = () => {
+            img.src = reader.result
+            reader.removeEventListener('load', picLoaded)
+            setPicture(img)
+            console.log('changed picture')
+        }
+        reader.addEventListener('load', picLoaded)
+    }
+
 
     return (
         <div>
@@ -78,7 +89,8 @@ export default function Expirements() {
                         <h2 className='glitch' effect="Experiments">Experiments</h2>
                         <p>
                             These were small projects I used to familiarize myself with different libraries
-                            , elements, and applications. Click the pictures to play. The experiment plays below the list.
+                            , elements, and applications. Click the pictures to play.
+                            The experiment plays below the list.
                         </p>
                     </div>
                     <div className='tech-expirement'>
@@ -122,7 +134,19 @@ export default function Expirements() {
                 </div>
                 <div className='experiment-display'>
                     <div className="experiment">
-                        {shown === 'Digital Image' ? loaded ?  <Headshot picture={picture.current} width='600px' />: null : null}
+                        <canvas ref={canvRef} />
+                        {shown === 'Digital Image' ?
+                            <div>
+                                <input
+                                    id='imageUpload'
+                                    className='imageUpload'
+                                    type='file'
+                                    accept='image/*'
+                                    onChange={handlePicture}
+                                />
+                                {loaded ? <Headshot picture={picture} canvas={canvRef.current} /> : null }
+                            </div> : null
+                        }
                         {shown === 'Matrix Effect' ? <Digital /> : null}
                         {shown === 'Fractal Tree' ? <Tree /> : null}
                         {shown === 'Flap Bat' ?

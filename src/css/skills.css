@@ -6,6 +6,10 @@
     gap: 1rem;
 }
 
+.skill-headline {
+    text-align: center;
+}
+
 .skills-container {
     display: flex;
     width: 100%;

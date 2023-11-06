@@ -79,6 +79,7 @@
 
 .experiment {
     display: flex;
+    position: relative;
     height: 50vh;
     width: 60%;
     margin: auto;
@@ -92,4 +93,9 @@
 
 #rain {
     width:600px;
+}
+
+.imageUpload {
+    position: absolute;
+    left: 0;
 }

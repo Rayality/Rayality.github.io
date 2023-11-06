@@ -63,8 +63,8 @@ export default function Intro() {
 
                     <section className="skills-section" >
                         <RevealAnimation width='50%'>
-                            <h3 style={{ marginInline: 'auto', width: 'max-content', }}>
-                                        Tech that I use regularly for my projects
+                            <h3 className='skill-headline'>
+                                Tech that I use regularly for my projects
                             </h3>
                         </RevealAnimation>
                         <Skills/>

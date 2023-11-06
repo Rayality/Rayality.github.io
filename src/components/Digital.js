@@ -1,7 +1,7 @@
 import { useRef, useEffect, Component } from 'react';
 
 
-export default function Digital(props) {
+export default function Digital() {
     let animID = useRef();
     const canvasRef = useRef()
     useEffect(() => {
