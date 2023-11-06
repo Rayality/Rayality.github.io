@@ -16,9 +16,7 @@ export default function BatGame(props) {
     }, [props, props.requestUnload])
 
     async function handleUnload() {
-        console.log('trying to unload', )
         await unload();
-        console.log(props.unloadedReplacement)
         props.setShown(props.unloadedReplacement);
     }
 

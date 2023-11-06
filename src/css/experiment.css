@@ -114,9 +114,15 @@
 
 .backButton {
     display: flex;
-    width: max-content;
+    align-items: center;
+    gap: .5rem;
     margin: auto;
     padding: .3rem 1rem;
     color: var(--text);
     background: var(--compliment);
+}
+
+.backButton-arrow {
+    transform: rotateY(180deg);
+    border-radius: 50%;
 }

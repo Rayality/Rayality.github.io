@@ -10,6 +10,8 @@ import gamepic from '../resources/FlapBat.png'
 import matrix from '../resources/MatrixRain.png'
 import treepic from '../resources/FractalTree.png'
 import Experiment from '../components/ExperimentContent'
+import live from '../resources/play.gif'
+
 
 export default function Expirements() {
     const [picture, setPicture] = useState(new Image())
@@ -37,40 +39,29 @@ export default function Expirements() {
                 return
             }
         }
-        let check = await handleUnload()
-        if (check === true){
-            switch (name) {
-                case 'Matrix Effect':
-                    setShown(name);
-                    break;
+        switch (name) {
+            case 'Matrix Effect':
+                setShown(name);
+                break;
 
-                case 'Fractal Tree':
-                    setShown(name);
-                    break;
+            case 'Fractal Tree':
+                setShown(name);
+                break;
 
-                case 'Digital Image':
-                    setShown(name);
-                    break;
+            case 'Digital Image':
+                setShown(name);
+                break;
 
-                case 'Flap Bat':
-                    setRequestUnloadUnity(false)
-                    setShown(name);
-                    break;
-                case 'none':
-                    setShown(name)
-                    break;
-                default:
-                    break;
-            }
-        } else {
-            setTimeout(() => handleExpirement(e), 2000)
+            case 'Flap Bat':
+                setRequestUnloadUnity(false)
+                setShown(name);
+                break;
+            default:
+                setShown('')
+                break;
         }
-
     }
 
-    async function handleUnload() {
-        return true
-    }
 
     function handlePicture(e) {
         const reader = new FileReader();
@@ -81,7 +72,6 @@ export default function Expirements() {
             img.src = reader.result
             reader.removeEventListener('load', picLoaded)
             setPicture(img)
-            console.log('changed picture')
         }
         reader.addEventListener('load', picLoaded)
     }
@@ -89,7 +79,7 @@ export default function Expirements() {
     return (
 
         <div className='options'>
-            {shown === 'none' ?
+            {shown === '' ?
                 <div className='tech-area'>
                     <div className='area-description'>
                         <h2 className='glitch' effect="Experiments">Experiments</h2>
@@ -140,7 +130,13 @@ export default function Expirements() {
                 </div>
                 :
                 <div className='experiment-display'>
-                    <button onClick={handleExpirement} name='none' className='backButton'>Back to experiments</button>
+                    <button
+                        onClick={handleExpirement}
+                        className='backButton'
+                    >
+                        <img src={live} alt='' className='backButton-arrow'/>
+                        <p>Back to experiments</p>
+                    </button>
                     <div className="experiment">
                         {shown === 'Digital Image' ?
                             <div>

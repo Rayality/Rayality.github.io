@@ -15,13 +15,12 @@ export default function RevealAnimation({ children, name='', width='100%' }) {
     useEffect(() => {
         if (isInView) {
             contentControls.start('show')
-        } 
+        }
         if (name === 'pic-container') {
             picture.current = new Image()
             picture.current.src = head
             picture.current.addEventListener('load', handleLoaded);
         }
-
     }, [isInView]);
 
     function handleLoaded() {
