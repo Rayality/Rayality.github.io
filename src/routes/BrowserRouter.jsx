@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import Expirements from "../pages/expirements";
 import Resume from "../pages/resume";
 import MatchGame from "../components/MatchGame";
+import ParticleImage from "../components/ParticleImage";
 
 
 const Routes = () => {
@@ -23,6 +24,10 @@ const Routes = () => {
       {
         path: "/matchgame",
         Component: MatchGame,
+      },
+      {
+        path: "/image",
+        Component: ParticleImage,
       },
     ];
   const router = createBrowserRouter([

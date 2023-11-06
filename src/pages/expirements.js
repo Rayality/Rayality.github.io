@@ -134,7 +134,6 @@ export default function Expirements() {
                 </div>
                 <div className='experiment-display'>
                     <div className="experiment">
-                        <canvas ref={canvRef} />
                         {shown === 'Digital Image' ?
                             <div>
                                 <input
@@ -144,7 +143,7 @@ export default function Expirements() {
                                     accept='image/*'
                                     onChange={handlePicture}
                                 />
-                                {loaded ? <Headshot picture={picture} canvas={canvRef.current} /> : null }
+                                {loaded ? <Headshot picture={picture} canvasRef={canvRef} /> : null }
                             </div> : null
                         }
                         {shown === 'Matrix Effect' ? <Digital /> : null}

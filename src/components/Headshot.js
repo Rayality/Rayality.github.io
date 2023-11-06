@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react';
 
 
-export default function Headshot({ picture, canvas }) {
+export default function Headshot({ picture, canvasRef }) {
     const animID = useRef(null);
-    const ref = useRef(null);
+    const ref = useRef(canvasRef);
 
     useEffect(() => {
-        const canv = canvas;
+        const canv = ref.current;
         const ctx = canv.getContext('2d', { willReadFrequently: true });
         ctx.reset()
         ctx.clearRect(0, 0, canv.width, canv.height);
@@ -93,5 +93,5 @@ export default function Headshot({ picture, canvas }) {
         animID.current = requestAnimationFrame(animate);
         return ()=> cancelAnimationFrame(animID.current)
     }, [picture])
-
+    return <canvas ref={ref} style={{width:'100%', height:'100%'}}/>
 }
