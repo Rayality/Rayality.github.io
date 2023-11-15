@@ -3,6 +3,7 @@ import TextLoader from "./textLoad";
 
 
 export default function Statement(props) {
+
     const index = useRef(1)
     const [currentText, setCurrentText] = useState('');
     const statement = props.text
@@ -13,7 +14,7 @@ export default function Statement(props) {
                 const segment = statement.slice(0, index.current)
                 index.current += 1;
                 setCurrentText(segment);
-            }, (Math.random()*160 + 85));
+            }, (Math.random()*160 + 45));
         } else {
             setCurrentText(statement)
             index.current++;
@@ -35,7 +36,10 @@ export default function Statement(props) {
         </div>
     )
 
-
+    // #2666cb -- element blue
+    // #dccd79 -- function name yellow
+    // #ffd710 -- parenthesis/curly yellow
+    // #ce70d6 -- return pink
 }
 
 

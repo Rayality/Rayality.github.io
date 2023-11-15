@@ -109,8 +109,8 @@ a {
 }
 
 .statement {
-  flex: 0 1 35%;
-  padding: 1rem;
+  position: relative;
+  padding: .5rem 1rem;
   border-radius: 1rem;
   color: var(--text);
   background-color: var(--compliment);
@@ -167,4 +167,24 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.blue {
+  color: #2666cb;
+}
+
+.bBlue {
+  color: #1f64c4;
+}
+
+.bYellow {
+  color: #ffd710;
+}
+
+.pink {
+  color: #ce70d6;
+}
+
+.yellow {
+  color: #dccd79;
 }
