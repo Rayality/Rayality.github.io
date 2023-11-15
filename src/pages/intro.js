@@ -11,8 +11,7 @@ import { useSelector } from 'react-redux/es/hooks/useSelector'
 
 
 export default function Intro() {
-    // const completedIntro = useSelector((state) => state.introControl.introState)
-    const completedIntro = true
+    const completedIntro = useSelector((state) => state.introControl.introState)
     const fade = {
         hidden: {
             opacity:0
@@ -51,7 +50,7 @@ export default function Intro() {
                             <Statement
                                 text="Welcome! My name is Charles. Be sure to check out the 'Experiments' page for games and small creations/animations."
                             />
-                            
+
                         </div>
                         </RevealAnimation>
                     </section>
