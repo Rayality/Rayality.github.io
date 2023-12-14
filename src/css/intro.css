@@ -118,11 +118,6 @@ a {
   font-family: 'Source Code Pro', monospace;
 }
 
-.statement h3 {
-  font-size: clamp(.8rem, 1.5vw + .2rem, 2rem);
-  padding: 0;
-}
-
 .text-load {
   font-family: 'Source Code Pro', monospace;
   color: #111;

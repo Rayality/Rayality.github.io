@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export default function TextLoader(props) {
+export default function TextLoader() {
     const [currentText, setCurrentText] = useState('');
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!.-"
 

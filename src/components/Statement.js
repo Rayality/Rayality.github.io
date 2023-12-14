@@ -14,7 +14,7 @@ export default function Statement(props) {
                 const segment = statement.slice(0, index.current)
                 index.current += 1;
                 setCurrentText(segment);
-            }, (Math.random()*160 + 45));
+            }, (Math.random()*120 + 45));
         } else {
             setCurrentText(statement)
             index.current++;
@@ -25,14 +25,16 @@ export default function Statement(props) {
 
     return (
         <div style={{width:'100%'}}>
-            <p style={{ display: 'inline' }}>
+            <h4 style={{ display: 'inline' }}>
                 {currentText}
-            </p>
+            </h4>
+            <h4 style={{display:'inline'}}>
                 {currentText.length !== statement.length ?
                     <TextLoader ind={index.current} />
                     :
                     null
                 }
+            </h4>
         </div>
     )
 
