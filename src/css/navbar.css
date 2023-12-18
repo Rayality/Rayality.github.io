@@ -14,6 +14,7 @@ header {
     padding: .5rem clamp(.5rem, 3.5vw, 5rem);
     background-color: var(--compliment);
     backdrop-filter: blur(15px);
+
 }
 
 .nav-bar * {
