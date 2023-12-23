@@ -37,7 +37,7 @@ export default function MatchGame() {
     function handleClick(e) {
         const piece = e.target
         console.log(piece)
-        piece.classList.add('selected')
+        piece.classList.toggle('selected')
 
     }
 

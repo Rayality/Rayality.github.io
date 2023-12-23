@@ -1,6 +1,7 @@
 .board {
     display: grid;
     grid-template-columns: repeat(8, .5fr);
+    gap: .3rem;
     align-content: center;
     justify-items: center;
     height: 100dvh;
@@ -12,10 +13,9 @@
     width: 5rem;
     height: 5rem;
     margin: .5rem 0;
+    border: 3px solid transparent;
 }
 
 .selected {
     border: 3px solid yellow;
-    width: 5.3rem;
-    height: 5.3rem;
 }
