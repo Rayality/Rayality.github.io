@@ -88,8 +88,8 @@
 .experiment {
     display: flex;
     position: relative;
-    height: 50vh;
-    width: 60%;
+    height: 80vh;
+    width: 80%;
     margin: auto;
     justify-content: center;
 }
@@ -100,16 +100,17 @@
 }
 
 #rain {
-    width:600px;
+    width: 600px;
 }
 
 .imageUpload {
-    position: absolute;
+    position: relative;
+    display: flex;
+    width: min-content;
+    text-wrap: nowrap;
     margin: auto;
     padding: .5rem 1rem;
     cursor: pointer;
-    left: 40%;
-    top: -10%;
     background: var(--compliment);
     border: 1px outset var(--compliment);
     border-radius: 4%;

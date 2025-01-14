@@ -153,10 +153,7 @@ export default function Expirements() {
                                         onChange={handlePicture}
                                     />
                                 </label>
-                                {loaded ?
-                                    <Headshot
-                                        picture={picture}
-                                    />
+                                {loaded ? <Headshot picture={picture}/>
                                     :
                                     null
                                 }

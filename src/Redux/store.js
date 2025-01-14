@@ -7,9 +7,7 @@ export const store = configureStore({
     introControl: introControlSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(
-
-    ),
+      getDefaultMiddleware().concat(),
 });
 
 setupListeners(store.dispatch);
