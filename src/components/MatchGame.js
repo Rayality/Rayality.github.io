@@ -38,7 +38,6 @@ export default function MatchGame() {
         const piece = e.target
         console.log(piece)
         piece.classList.toggle('selected')
-
     }
 
     return (
@@ -51,5 +50,4 @@ export default function MatchGame() {
             })}
         </div>
     )
-
 }

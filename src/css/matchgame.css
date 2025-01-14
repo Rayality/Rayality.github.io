@@ -1,7 +1,7 @@
 .board {
     display: grid;
-    grid-template-columns: repeat(8, .5fr);
-    gap: .3rem;
+    grid-template-columns: repeat(8, .3fr);
+    gap: 1%;
     align-content: center;
     justify-items: center;
     height: 100dvh;
@@ -10,9 +10,8 @@
 }
 
 .piece {
-    width: 5rem;
-    height: 5rem;
-    margin: .5rem 0;
+    width: 100%;
+
     border: 3px solid transparent;
 }
 
